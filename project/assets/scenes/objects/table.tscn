@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/furniturekit/tableRound.fbx" type="PackedScene" id=1]
+
+[node name="sceneTable" type="Spatial"]
+
+[node name="tableRound" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.74011, 1.38811, -1.99197 )

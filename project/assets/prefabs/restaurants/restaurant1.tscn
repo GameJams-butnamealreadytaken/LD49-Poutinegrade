@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/prefabs/objects/kitchenbar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/prefabs/managers/CustomerManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/characters/player/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/prefabs/restaurants/restaurant.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/prefabs/spawners/food_spawner/food_spawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/prefabs/objects/food/apple.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/prefabs/objects/food/burger.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/prefabs/objects/food/croissant.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/prefabs/objects/food/fries.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/prefabs/objects/food/sodaCan.tscn" type="PackedScene" id=12]
 
 [node name="Spatial" type="Spatial"]
 
@@ -182,5 +189,27 @@ pause_mode = 1
 transform = Transform( 0.781292, 0, -0.624166, 0, 1, 0, 0.624166, 0, 0.781292, -18.8323, 1.43051e-06, -3.84203 )
 CharacterType = "Woman"
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.794404, 0, -0.60739, 0, 1, 0, 0.60739, 0, 0.794404, -7.14691, 3.4937, 9.41818 )
+[node name="Player" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77974, 2.01046, 6.82765 )
+
+[node name="Spawners" type="Spatial" parent="."]
+
+[node name="FoodSpawnerApple" parent="Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 6.64979 )
+food_to_spawn = ExtResource( 8 )
+
+[node name="FoodSpawnerBurger" parent="Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 7.87265 )
+food_to_spawn = ExtResource( 9 )
+
+[node name="FoodSpawnerCroissant" parent="Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 9.08253 )
+food_to_spawn = ExtResource( 10 )
+
+[node name="FoodSpawnerSodaCan" parent="Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.25437, 11.6492 )
+food_to_spawn = ExtResource( 12 )
+
+[node name="FoodSpawnerFries" parent="Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.31052, 10.2954 )
+food_to_spawn = ExtResource( 11 )

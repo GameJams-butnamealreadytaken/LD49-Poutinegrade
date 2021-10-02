@@ -12,7 +12,7 @@ script = ExtResource( 1 )
 food_anchor_path = NodePath("FoodAnchor")
 
 [node name="CollisionBox" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00865602, 2.38419e-07, 0.00797272 )
+transform = Transform( 0.3, 0, 0, 0, 1.3, 0, 0, 0, 0.3, -0.00865602, 2.38419e-07, 0.00797272 )
 shape = SubResource( 1 )
 
 [node name="FoodAnchor" type="Position3D" parent="."]

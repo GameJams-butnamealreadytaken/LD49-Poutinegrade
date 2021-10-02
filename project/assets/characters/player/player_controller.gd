@@ -42,14 +42,12 @@ func _ready() -> void:
     add_child(hud)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:    
     process_input(delta)
     process_movement(delta)
     process_raycasts(delta)
     update_hud(delta)
     
-    tray.add_player_velocity(current_velocity - last_velocity)
-        
 
 func process_input(_delta: float) -> void:
     # Reset direction
@@ -83,9 +81,16 @@ func process_movement(delta: float) -> void:
     else:
         new_velocity = current_velocity.linear_interpolate(Vector3(), deceleration * delta)
     
-    rotate_y(deg2rad(rotation_speed * -desired_rotation_direction * delta))
-    last_velocity = current_velocity 
+    var rotaval = deg2rad(rotation_speed * -desired_rotation_direction * delta)
+    
+    if rotaval != 0.0:
+        tray.apply_player_rotation(rotaval, global_transform.origin)
+        rotate_y(rotaval)
+    
+    last_velocity = current_velocity
     current_velocity = move_and_slide(new_velocity, Vector3.UP)
+    
+    tray.apply_player_velocity(current_velocity - last_velocity)
     
 
 func process_raycasts(_delta: float) -> void:

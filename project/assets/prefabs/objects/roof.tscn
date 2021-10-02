@@ -49,6 +49,7 @@ surfaces/2 = {
 [node name="Roof" type="Spatial"]
 
 [node name="wall" type="MeshInstance" parent="."]
+use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = null
 material/1 = null

@@ -85,7 +85,6 @@ func ServeRequestedFood(food: Food):
         
     var keepRequestingFood = false
     var foodServedMultiplier = 1
-    var foodServed = RequestedFood
     if food == null: # requesting time reached
         foodServedMultiplier = -1
     elif not food.food_name == RequestedFood.food_name:

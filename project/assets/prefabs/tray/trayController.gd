@@ -39,7 +39,6 @@ func _process(delta):
     
 func resetTray():
     mode = MODE_KINEMATIC
-    
     transform.basis = Basis()
     transform = transform.basis.scaled(current_scale)
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/prefabs/characters/scripts/Customer.gd" type="Script" id=1]
 [ext_resource path="res://assets/prefabs/characters/character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/prefabs/sprites/Billboard.gd" type="Script" id=3]
+[ext_resource path="res://assets/prefabs/sprites/spriteTimer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.33416
@@ -22,3 +24,15 @@ shape = SubResource( 1 )
 [node name="sceneCharacterCollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.00807, 0 )
 shape = SubResource( 1 )
+
+[node name="Billboard" type="Spatial" parent="." groups=[
+"billboard",
+]]
+transform = Transform( 0.876525, 0, -0.481356, 0, 1, 0, 0.481356, 0, 0.876525, 0, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="spriteTimer" parent="Billboard" instance=ExtResource( 4 )]
+transform = Transform( 0.12914, 0, 0, 0, 0.12914, 0, 0, 0, 1, 1.00096, 4.96732, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.955247, 0, 0.295808, 0, 1, 0, -0.295808, 0, -0.955247, 3.29327, 4.73714, -5.99689 )

@@ -189,27 +189,27 @@ pause_mode = 1
 transform = Transform( 0.781292, 0, -0.624166, 0, 1, 0, 0.624166, 0, 0.781292, -18.8323, 1.43051e-06, -3.84203 )
 CharacterType = "Woman"
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Player" parent="restaurant" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77974, 2.01046, 6.82765 )
 
-[node name="Spawners" type="Spatial" parent="."]
+[node name="Spawners" type="Spatial" parent="restaurant"]
 
-[node name="FoodSpawnerApple" parent="Spawners" instance=ExtResource( 7 )]
+[node name="FoodSpawnerApple" parent="restaurant/Spawners" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 6.64979 )
 food_to_spawn = ExtResource( 8 )
 
-[node name="FoodSpawnerBurger" parent="Spawners" instance=ExtResource( 7 )]
+[node name="FoodSpawnerBurger" parent="restaurant/Spawners" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 7.87265 )
 food_to_spawn = ExtResource( 9 )
 
-[node name="FoodSpawnerCroissant" parent="Spawners" instance=ExtResource( 7 )]
+[node name="FoodSpawnerCroissant" parent="restaurant/Spawners" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 9.08253 )
 food_to_spawn = ExtResource( 10 )
 
-[node name="FoodSpawnerSodaCan" parent="Spawners" instance=ExtResource( 7 )]
+[node name="FoodSpawnerSodaCan" parent="restaurant/Spawners" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.25437, 11.6492 )
 food_to_spawn = ExtResource( 12 )
 
-[node name="FoodSpawnerFries" parent="Spawners" instance=ExtResource( 7 )]
+[node name="FoodSpawnerFries" parent="restaurant/Spawners" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.31052, 10.2954 )
 food_to_spawn = ExtResource( 11 )

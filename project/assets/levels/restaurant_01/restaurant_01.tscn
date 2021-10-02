@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://assets/prefabs/objects/food/sushi.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/prefabs/objects/food/taco.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/prefabs/objects/wall.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/prefabs/objects/roof.tscn" type="PackedScene" id=19]
 
 [node name="Spatial" type="Spatial"]
 
@@ -278,6 +279,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4803, 0, -25.2679 )
 [node name="sceneWall12" parent="restaurant/Walls" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25.3489, 0, 25.2927 )
 
+[node name="sceneWall45" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25.6364, 0, 25.2927 )
+
 [node name="sceneWall13" parent="restaurant/Walls" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20.3932, 0, 25.2927 )
 
@@ -373,3 +377,160 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.626
 
 [node name="sceneWall44" parent="restaurant/Walls" instance=ExtResource( 18 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, -25.0885 )
+
+[node name="Roof" type="Spatial" parent="restaurant"]
+
+[node name="Roof" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, 25.5069, 6.37159, -25.247 )
+
+[node name="Roof25" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 25.7223, 6.50054, -14.4819 )
+
+[node name="Roof31" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 25.7223, 6.50054, -15.2247 )
+
+[node name="Roof26" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 25.7223, 6.50054, -4.71702 )
+
+[node name="Roof27" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 25.7223, 6.50054, 5.0643 )
+
+[node name="Roof28" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 25.7223, 6.50054, 14.9434 )
+
+[node name="Roof29" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 25.7223, 6.50054, 24.7717 )
+
+[node name="Roof30" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 25.7223, 6.50054, 25.1548 )
+
+[node name="Roof32" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 16.217, 13.344, 25.155 )
+
+[node name="Roof33" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 16.217, 13.344, 15.3238 )
+
+[node name="Roof34" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 16.217, 13.344, 5.42746 )
+
+[node name="Roof35" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 16.217, 13.344, -4.38093 )
+
+[node name="Roof36" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 16.217, 13.344, -14.0069 )
+
+[node name="Roof37" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, -0.811594, -0.584221, 0, 0.584221, -0.811594, 1, -3.54759e-08, -2.55371e-08, 16.217, 13.344, -15.2134 )
+
+[node name="Roof38" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6887, 6.50054, 14.6353 )
+
+[node name="Roof39" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6899, 6.50054, 15.3781 )
+
+[node name="Roof40" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6721, 6.50054, 4.87041 )
+
+[node name="Roof41" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6556, 6.50054, -4.91089 )
+
+[node name="Roof42" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6389, 6.50054, -14.79 )
+
+[node name="Roof49" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6389, 6.50054, -15.9998 )
+
+[node name="Roof43" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6216, 6.50054, -25.0014 )
+
+[node name="Roof44" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -16.1163, 13.344, -24.9855 )
+
+[node name="Roof45" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -16.133, 13.344, -15.1543 )
+
+[node name="Roof46" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -16.1497, 13.344, -5.25796 )
+
+[node name="Roof50" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.31132, 20.8485, -5.35718 )
+
+[node name="Roof51" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.30832, 20.8485, -5.35718 )
+
+[node name="Roof47" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -16.1663, 13.344, 4.55041 )
+
+[node name="Roof48" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -16.1847, 13.344, 15.3829 )
+
+[node name="Roof13" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, -25.6259, 6.3802, 25.3461 )
+
+[node name="Roof14" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, -15.6286, 6.3802, 25.3461 )
+
+[node name="Roof15" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, -5.6618, 6.3802, 25.3461 )
+
+[node name="Roof16" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, 4.23984, 6.3802, 25.3461 )
+
+[node name="Roof17" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, 14.0727, 6.3802, 25.3461 )
+
+[node name="Roof18" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, 15.5057, 6.3802, 25.3461 )
+
+[node name="Roof19" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, 15.506, 13.783, 15.061 )
+
+[node name="Roof20" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, 5.62624, 13.783, 15.061 )
+
+[node name="Roof21" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, -4.309, 13.783, 15.061 )
+
+[node name="Roof22" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, -14.1697, 13.783, 15.061 )
+
+[node name="Roof23" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, -24.0988, 13.783, 15.061 )
+
+[node name="Roof24" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( -1, -7.09518e-08, -5.10742e-08, 0, 0.584221, -0.811594, 8.74228e-08, -0.811594, -0.584221, -25.6316, 13.783, 15.061 )
+
+[node name="Roof7" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, 25.507, 13.761, -14.982 )
+
+[node name="Roof8" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, 15.58, 13.761, -14.982 )
+
+[node name="Roof9" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, 5.79979, 13.761, -14.982 )
+
+[node name="Roof10" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, -4.16279, 13.761, -14.982 )
+
+[node name="Roof11" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, -13.8162, 13.761, -14.982 )
+
+[node name="Roof12" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, -15.566, 13.761, -14.982 )
+
+[node name="Roof2" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, 15.582, 6.37159, -25.247 )
+
+[node name="Roof3" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, 5.82065, 6.37159, -25.247 )
+
+[node name="Roof4" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, -4.05423, 6.37159, -25.247 )
+
+[node name="Roof5" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, -13.773, 6.37159, -25.247 )
+
+[node name="Roof6" parent="restaurant/Roof" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 0.584221, -0.811594, 0, 0.811594, 0.584221, -15.5605, 6.37159, -25.247 )
+
+[node name="Lights" type="Spatial" parent="restaurant"]

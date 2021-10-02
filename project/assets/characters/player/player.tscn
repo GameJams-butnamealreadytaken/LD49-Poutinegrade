@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/characters/player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://assets/prefabs/tray/tray.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/characters/player/player_hud.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 margin = 0.001
@@ -11,6 +12,8 @@ height = 2.0
 script = ExtResource( 1 )
 camera_path = NodePath("Camera")
 tray_anchor_path = NodePath("Camera/TrayAnchor")
+interactable_detector_path = NodePath("Camera/InteractableDetector")
+hud_scene = ExtResource( 3 )
 tray_scene = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -22,3 +25,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15748, 0 )
 
 [node name="TrayAnchor" type="Position3D" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828588, -0.116781, -2.10853 )
+
+[node name="InteractableDetector" type="RayCast" parent="Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -2 )
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false

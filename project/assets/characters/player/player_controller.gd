@@ -7,6 +7,10 @@ onready var camera := get_node(camera_path) as Camera
 export(NodePath) var tray_anchor_path
 onready var tray_anchor := get_node(tray_anchor_path) as Position3D
 
+export(NodePath) var interactable_detector_path
+onready var interactable_detector := get_node(interactable_detector_path) as RayCast
+
+export(PackedScene) var hud_scene: PackedScene
 export(PackedScene) var tray_scene: PackedScene
 
 export(float) var acceleration := 2.0
@@ -15,19 +19,28 @@ export(float) var max_speed := 6.0
 export(float) var rotation_speed := 70.0
 
 
+var hud: PlayerHUD
+
 var desired_direction: Vector3
 var desired_rotation_direction: int
 var current_velocity: Vector3
+
+var nearest_interactable: Interactable
 
 
 func _ready() -> void:
     var tray := tray_scene.instance()
     tray_anchor.add_child(tray)
+    
+    hud = hud_scene.instance() as PlayerHUD
+    add_child(hud)
 
 
 func _physics_process(delta: float) -> void:
     process_input(delta)
     process_movement(delta)
+    process_raycasts(delta)
+    update_hud(delta)
         
 
 func process_input(_delta: float) -> void:
@@ -59,3 +72,14 @@ func process_movement(delta: float) -> void:
     
     rotate_y(deg2rad(rotation_speed * -desired_rotation_direction * delta))
     current_velocity = move_and_slide(new_velocity, Vector3.UP)
+
+
+func process_raycasts(delta: float) -> void:
+    nearest_interactable = interactable_detector.get_collider() as Interactable
+
+
+func update_hud(delta: float) -> void:
+    if nearest_interactable != null:
+        hud.set_interaction_text(nearest_interactable.display_text)
+    else:
+        hud.set_interaction_text("")

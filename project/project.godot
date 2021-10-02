@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://assets/prefabs/objects/interactable.gd"
+}, {
+"base": "Control",
+"class": "PlayerHUD",
+"language": "GDScript",
+"path": "res://assets/characters/player/player_hud.gd"
+} ]
+_global_script_class_icons={
+"Interactable": "",
+"PlayerHUD": ""
+}
+
 [application]
 
 config/name="Poutinegrade"

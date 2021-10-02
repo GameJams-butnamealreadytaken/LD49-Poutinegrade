@@ -24,3 +24,24 @@ bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ContainerClients" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -200.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelClientsRequesting" type="Label" parent="ContainerClients"]
+margin_top = 18.0
+margin_right = 124.0
+margin_bottom = 32.0
+text = "Clients requesting :"
+
+[node name="LabelClientsRequestingValue" type="Label" parent="ContainerClients"]
+margin_left = 128.0
+margin_top = 18.0
+margin_right = 128.0
+margin_bottom = 32.0

@@ -1,0 +1,241 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/prefabs/objects/kitchenbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/prefabs/managers/CustomerManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/characters/player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/prefabs/restaurants/restaurant.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/prefabs/spawners/food_spawner/food_spawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/prefabs/objects/food/apple.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/prefabs/objects/food/burger.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/prefabs/objects/food/croissant.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/prefabs/objects/food/fries.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/prefabs/objects/food/sodaCan.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/prefabs/objects/food/beet.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/prefabs/objects/food/muffin.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/prefabs/objects/food/red_wine.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/prefabs/objects/food/sushi.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/prefabs/objects/food/taco.tscn" type="PackedScene" id=17]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="restaurant" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000392437, -0.00622582, -0.000187874 )
+
+[node name="kitchen" type="Spatial" parent="restaurant"]
+
+[node name="sceneKitchenBar" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2, 0, 5 )
+
+[node name="sceneKitchenBar2" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1, 0, 5 )
+
+[node name="sceneKitchenBar3" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 5 )
+
+[node name="sceneKitchenBar4" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9, 0, 5 )
+
+[node name="sceneKitchenBar5" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8, 0, 5 )
+
+[node name="sceneKitchenBar6" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7, 0, 5 )
+
+[node name="sceneKitchenBar7" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6, 0, 5 )
+
+[node name="sceneKitchenBar8" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0, 5 )
+
+[node name="sceneKitchenBar9" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 7.979 )
+
+[node name="sceneKitchenBar10" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 9.879 )
+
+[node name="sceneKitchenBar11" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 11.779 )
+
+[node name="sceneKitchenBar12" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 13.679 )
+
+[node name="sceneKitchenBar13" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 15.579 )
+
+[node name="sceneKitchenBar14" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 17.479 )
+
+[node name="sceneKitchenBar15" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 19.379 )
+
+[node name="sceneKitchenBar16" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 21.279 )
+
+[node name="sceneKitchenBar17" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 23.179 )
+
+[node name="sceneKitchenBar18" parent="restaurant/kitchen" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318, 0, 25.079 )
+
+[node name="tables" type="Spatial" parent="restaurant"]
+
+[node name="sceneTable" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98613, 0, 12 )
+
+[node name="sceneTable2" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7688, 0, 17.5485 )
+
+[node name="sceneTable3" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98613, 0, -2 )
+
+[node name="sceneTable4" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98613, 0, -13 )
+
+[node name="sceneTable5" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9861, 0, 5 )
+
+[node name="sceneTable6" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9861, 0, -2 )
+
+[node name="sceneTable7" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9861, 0, -15 )
+
+[node name="sceneTable8" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9861, 0, 13 )
+
+[node name="sceneTable9" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01387, 0, -20 )
+
+[node name="sceneTable10" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0139, 0, -19 )
+
+[node name="sceneTable11" parent="restaurant/tables" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0139, 0, -6 )
+
+[node name="customerManager" parent="restaurant" instance=ExtResource( 4 )]
+
+[node name="sceneCustomer" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98613, 0, 8.28632 )
+
+[node name="sceneCustomer2" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74724, 0, 4.68046 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer3" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.860689, 0, 0.509132, 0, 1, 0, -0.509132, 0, -0.860689, -2.98613, 0, 15.3047 )
+CharacterType = "Woman"
+
+[node name="sceneCustomer4" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.860689, 0, 0.509132, 0, 1, 0, -0.509132, 0, -0.860689, -14.4003, 0, 7.90833 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer5" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.860689, 0, 0.509132, 0, 1, 0, -0.509132, 0, -0.860689, -20.4129, 0, -13.3329 )
+CharacterType = "Woman"
+
+[node name="sceneCustomer6" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, -24.2, 0, -3.08953 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer7" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, -11.1135, 0, -12.7709 )
+
+[node name="sceneCustomer8" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, 1.12365, 0, -20.4983 )
+CharacterType = "Woman"
+
+[node name="sceneCustomer9" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, -14.9345, 0, 17.1119 )
+CharacterType = "WomanAlternative"
+
+[node name="sceneCustomer10" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.916656, 0, 0.399677, 0, 1, 0, -0.399677, 0, -0.916656, -21.7679, 0, 14.4104 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer11" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.916656, 0, 0.399677, 0, 1, 0, -0.399677, 0, -0.916656, 11.0335, 0, -3.57331 )
+
+[node name="sceneCustomer12" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 13.3087, 4.76837e-07, -8.27427 )
+CharacterType = "Woman"
+
+[node name="sceneCustomer13" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 20.5812, 1.43051e-06, -21.7242 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer14" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.903619, 0, 0.428336, 0, 1, 0, -0.428336, 0, -0.903619, 16.3937, 1.43051e-06, -16.6232 )
+CharacterType = "ManAlternative"
+
+[node name="sceneCustomer15" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.903619, 0, 0.428336, 0, 1, 0, -0.428336, 0, -0.903619, -4.83543, 1.43051e-06, 0.336116 )
+
+[node name="sceneCustomer16" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.781292, 0, -0.624166, 0, 1, 0, 0.624166, 0, 0.781292, -1.40874, 1.43051e-06, -4.23995 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer17" parent="restaurant/customerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.781292, 0, -0.624166, 0, 1, 0, 0.624166, 0, 0.781292, -18.8323, 1.43051e-06, -3.84203 )
+CharacterType = "Woman"
+
+[node name="Player" parent="restaurant" instance=ExtResource( 5 )]
+transform = Transform( -0.00466004, 0, -0.999989, 0, 1, 0, 0.999989, 0, -0.00466004, 4.49674, 2.01046, 6.82765 )
+
+[node name="Spawners" type="Spatial" parent="restaurant"]
+
+[node name="FoodSpawnerApple" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 6.64979 )
+food_to_spawn = ExtResource( 8 )
+
+[node name="FoodSpawnerBeet" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 13 )
+
+[node name="FoodSpawnerMuffin" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9709, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 14 )
+
+[node name="FoodSpawnerRedWine" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1442, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 15 )
+
+[node name="FoodSpawnerSushi" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3825, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 16 )
+
+[node name="FoodSpawnerTaco" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5968, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 17 )
+
+[node name="FoodSpawnerBurger" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 7.87265 )
+food_to_spawn = ExtResource( 9 )
+
+[node name="FoodSpawnerCroissant" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 9.08253 )
+food_to_spawn = ExtResource( 10 )
+
+[node name="FoodSpawnerSodaCan" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.25437, 11.6492 )
+food_to_spawn = ExtResource( 12 )
+
+[node name="FoodSpawnerFries" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.31052, 10.2954 )
+food_to_spawn = ExtResource( 11 )

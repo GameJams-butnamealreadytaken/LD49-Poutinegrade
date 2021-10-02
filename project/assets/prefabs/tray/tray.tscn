@@ -10,6 +10,7 @@
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
+tray_controller_path = NodePath("RigidBody_tray")
 
 [node name="KineBody_arm" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.807074, -0.590451, 0, 0.590451, 0.807074, 0, -0.467974, 0.443 )

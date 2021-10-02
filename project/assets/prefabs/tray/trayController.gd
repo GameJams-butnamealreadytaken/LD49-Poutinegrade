@@ -1,13 +1,15 @@
 extends RigidBody
 
+class_name TrayController
+
 export(float) var rotation_speed = 1.0
 export(float) var rotation_max = 30.0
 
 var rot_angle_x = 0.0
 var rot_angle_z = 0.0
 
-var parent
-var current_scale
+var parent : Node
+var current_scale : Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -56,3 +58,6 @@ func _physics_process(_delta):
         rotate_x(rot_angle_x)
     if rot_angle_z != 0.0:
         rotate_z(rot_angle_z)
+
+func is_in_kinematic_state() -> bool:
+    return mode == MODE_KINEMATIC

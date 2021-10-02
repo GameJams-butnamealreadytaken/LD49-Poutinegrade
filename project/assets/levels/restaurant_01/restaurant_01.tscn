@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
@@ -21,8 +21,9 @@
 [ext_resource path="res://assets/prefabs/objects/roof.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/prefabs/objects/lamp_floor.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/prefabs/objects/table_lamp.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/prefabs/objects/chair.tscn" type="PackedScene" id=22]
 
-[sub_resource type="GIProbeData" id=2]
+[sub_resource type="GIProbeData" id=1]
 bounds = AABB( -32.6387, -23.2668, -30.679, 65.2773, 46.5336, 61.3579 )
 cell_size = 0.509979
 to_cell_xform = Transform( 1.96087, 0, 0, 0, 1.96087, 0, 0, 0, 1.96087, 64, 45.623, 60.1573 )
@@ -33,7 +34,7 @@ normal_bias = 0.0
 propagation = 0.73
 interior = true
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=2]
 ambient_light_energy = 0.0
 
 [node name="Spatial" type="Spatial"]
@@ -101,35 +102,131 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.318,
 [node name="sceneTable" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98613, 0, 12 )
 
+[node name="Chair" parent="restaurant/tables/sceneTable" instance=ExtResource( 22 )]
+transform = Transform( 0.33142, 0, 0.943483, 0, 1, 0, -0.943483, 0, 0.33142, 1.78054, 0, 0.341805 )
+
+[node name="Chair2" parent="restaurant/tables/sceneTable" instance=ExtResource( 22 )]
+transform = Transform( -0.847715, 0, 0.530452, 0, 1, 0, -0.530452, 0, -0.847715, 0.878526, 0, -1.49264 )
+
+[node name="Chair3" parent="restaurant/tables/sceneTable" instance=ExtResource( 22 )]
+transform = Transform( -0.427847, 0, -0.903851, 0, 1, 0, 0.903851, 0, -0.427847, -1.83607, 0, -0.0862341 )
+
 [node name="sceneTable2" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7688, 0, 17.5485 )
+
+[node name="Chair4" parent="restaurant/tables/sceneTable2" instance=ExtResource( 22 )]
+transform = Transform( -0.920164, 0, 0.391534, 0, 1, 0, -0.391534, 0, -0.920164, 0.527337, 0, -1.52402 )
 
 [node name="sceneTable3" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98613, 0, -2 )
 
+[node name="Chair12" parent="restaurant/tables/sceneTable3" instance=ExtResource( 22 )]
+transform = Transform( 0.817969, 0, 0.575262, 0, 1, 0, -0.575262, 0, 0.817969, 0.934228, 0, 1.51819 )
+
+[node name="Chair15" parent="restaurant/tables/sceneTable3" instance=ExtResource( 22 )]
+transform = Transform( -0.882792, 0, -0.469764, 0, 1, 0, 0.469764, 0, -0.882792, -0.61832, 0, -1.39165 )
+
+[node name="Chair16" parent="restaurant/tables/sceneTable3" instance=ExtResource( 22 )]
+transform = Transform( -0.352593, 0, -0.935776, 0, 1, 0, 0.935776, 0, -0.352593, -1.48998, 4.76837e-07, 0.0162015 )
+
+[node name="Chair17" parent="restaurant/tables/sceneTable3" instance=ExtResource( 22 )]
+transform = Transform( 0.0777804, 0, -0.99697, 0, 1, 0, 0.99697, 0, 0.0777804, -1.39369, 4.76837e-07, 1.33371 )
+
+[node name="Chair13" parent="restaurant/tables/sceneTable3" instance=ExtResource( 22 )]
+transform = Transform( 0.391406, 0, 0.920218, 0, 1, 0, -0.920218, 0, 0.391406, 1.74583, 0, 0.239461 )
+
+[node name="Chair14" parent="restaurant/tables/sceneTable3" instance=ExtResource( 22 )]
+transform = Transform( -0.0590973, 0, 0.998252, 0, 1, 0, -0.998252, 0, -0.0590973, 1.59807, 0, -1.1363 )
+
 [node name="sceneTable4" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98613, 0, -13 )
+
+[node name="Chair11" parent="restaurant/tables/sceneTable4" instance=ExtResource( 22 )]
+transform = Transform( 0.98525, 0, -0.171121, 0, 1, 0, 0.171121, 0, 0.98525, 0.377495, 0, 1.9713 )
 
 [node name="sceneTable5" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9861, 0, 5 )
 
+[node name="Chair4" parent="restaurant/tables/sceneTable5" instance=ExtResource( 22 )]
+transform = Transform( 0.0180108, 0, 0.999838, 0, 1, 0, -0.999838, 0, 0.0180108, 1.5375, 0, -0.459982 )
+
+[node name="Chair5" parent="restaurant/tables/sceneTable5" instance=ExtResource( 22 )]
+transform = Transform( -0.00815058, 0, -0.999967, 0, 1, 0, 0.999967, 0, -0.00815058, -1.93835, 0, 0.522483 )
+
 [node name="sceneTable6" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9861, 0, -2 )
+
+[node name="Chair6" parent="restaurant/tables/sceneTable6" instance=ExtResource( 22 )]
+transform = Transform( 0.683401, 0, 0.730043, 0, 1, 0, -0.730043, 0, 0.683401, 1.45736, 0, 0.983737 )
+
+[node name="Chair7" parent="restaurant/tables/sceneTable6" instance=ExtResource( 22 )]
+transform = Transform( -0.52949, 0, -0.848316, 0, 1, 0, 0.848316, 0, -0.52949, -1.28603, 0, -1.07777 )
 
 [node name="sceneTable7" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9861, 0, -15 )
 
+[node name="Chair8" parent="restaurant/tables/sceneTable7" instance=ExtResource( 22 )]
+transform = Transform( 0.609606, 0, 0.792705, 0, 1, 0, -0.792705, 0, 0.609606, 0.883869, 0, 1.11935 )
+
+[node name="Chair9" parent="restaurant/tables/sceneTable7" instance=ExtResource( 22 )]
+transform = Transform( -0.755968, 0, -0.654609, 0, 1, 0, 0.654609, 0, -0.755968, -2.16496, 0, -0.155657 )
+
+[node name="Chair10" parent="restaurant/tables/sceneTable7" instance=ExtResource( 22 )]
+transform = Transform( -0.9881, 0, -0.153814, 0, 1, 0, 0.153814, 0, -0.9881, -0.768063, 0, -1.42901 )
+
 [node name="sceneTable8" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9861, 0, 13 )
+
+[node name="Chair5" parent="restaurant/tables/sceneTable8" instance=ExtResource( 22 )]
+transform = Transform( 0.0269446, 0, 0.999637, 0, 1, 0, -0.999637, 0, 0.0269446, 1.52248, 0, -0.697471 )
+
+[node name="Chair9" parent="restaurant/tables/sceneTable8" instance=ExtResource( 22 )]
+transform = Transform( 0.908348, 0, 0.418216, 0, 1, 0, -0.418216, 0, 0.908348, 1.02909, 0, 1.11765 )
+
+[node name="Chair6" parent="restaurant/tables/sceneTable8" instance=ExtResource( 22 )]
+transform = Transform( -0.774139, 0, 0.633016, 0, 1, 0, -0.633016, 0, -0.774139, 0.504946, 0, -1.7743 )
+
+[node name="Chair7" parent="restaurant/tables/sceneTable8" instance=ExtResource( 22 )]
+transform = Transform( -0.915431, 0, -0.402475, 0, 1, 0, 0.402475, 0, -0.915431, -1.16505, 9.53674e-07, -1.48963 )
+
+[node name="Chair8" parent="restaurant/tables/sceneTable8" instance=ExtResource( 22 )]
+transform = Transform( -0.393958, 0, -0.919129, 0, 1, 0, 0.919129, 0, -0.393958, -2.26569, 9.53674e-07, -0.011447 )
 
 [node name="sceneTable9" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01387, 0, -20 )
 
+[node name="Chair10" parent="restaurant/tables/sceneTable9" instance=ExtResource( 22 )]
+transform = Transform( 0.999924, 0, -0.0123041, 0, 1, 0, 0.0123041, 0, 0.999924, 0.511902, 9.53674e-07, 1.79699 )
+
+[node name="Chair11" parent="restaurant/tables/sceneTable9" instance=ExtResource( 22 )]
+transform = Transform( -0.0485186, 0, 0.998822, 0, 1, 0, -0.998822, 0, -0.0485186, 1.88642, 9.53674e-07, -0.508913 )
+
+[node name="Chair12" parent="restaurant/tables/sceneTable9" instance=ExtResource( 22 )]
+transform = Transform( -0.995715, 0, -0.0924749, 0, 1, 0, 0.0924749, 0, -0.995715, -0.444781, 9.53674e-07, -1.73647 )
+
 [node name="sceneTable10" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0139, 0, -19 )
 
+[node name="Chair13" parent="restaurant/tables/sceneTable10" instance=ExtResource( 22 )]
+transform = Transform( 0.0116585, 0, -0.999932, 0, 1, 0, 0.999932, 0, 0.0116585, -1.56002, 9.53674e-07, 0.538088 )
+
+[node name="Chair14" parent="restaurant/tables/sceneTable10" instance=ExtResource( 22 )]
+transform = Transform( 0.00492246, 0.000269566, 0.999988, 0.0136661, 0.999907, -0.000336797, -0.999895, 0.0136676, 0.00491832, 1.5276, 5.67775e-05, -0.440825 )
+
 [node name="sceneTable11" parent="restaurant/tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0139, 0, -6 )
+
+[node name="Chair15" parent="restaurant/tables/sceneTable11" instance=ExtResource( 22 )]
+transform = Transform( 0.54714, 0.000269568, 0.837041, 0.0112929, 0.999906, -0.00770373, -0.836965, 0.0136676, 0.547086, 1.55735, -0.192261, 0.766385 )
+
+[node name="Chair17" parent="restaurant/tables/sceneTable11" instance=ExtResource( 22 )]
+transform = Transform( -0.703159, 0.000269569, -0.711032, -0.0095286, 0.999906, 0.00980218, 0.710968, 0.0136676, -0.703091, -1.05881, -0.167301, -1.0081 )
+
+[node name="Chair18" parent="restaurant/tables/sceneTable11" instance=ExtResource( 22 )]
+transform = Transform( 0.037428, 0.000269569, -0.999299, -0.0136681, 0.999906, -0.000242197, 0.999206, 0.0136676, 0.0374282, -1.3971, -0.192758, 0.861012 )
+
+[node name="Chair16" parent="restaurant/tables/sceneTable11" instance=ExtResource( 22 )]
+transform = Transform( -0.0889632, 0.000269566, 0.996035, 0.0136374, 0.999906, 0.000947444, -0.995942, 0.0136676, -0.0889585, 1.55777, -0.167126, -1.07251 )
 
 [node name="customerManager" parent="restaurant" instance=ExtResource( 4 )]
 
@@ -579,7 +676,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95811, 0, -3.54967 )
 extents = Vector3( 32.6387, 23.2668, 30.679 )
 propagation = 0.73
 interior = true
-data = SubResource( 2 )
+data = SubResource( 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = SubResource( 2 )

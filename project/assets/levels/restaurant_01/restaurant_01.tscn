@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/prefabs/objects/food/red_wine.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/prefabs/objects/food/sushi.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/prefabs/objects/food/taco.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/prefabs/objects/wall.tscn" type="PackedScene" id=18]
 
 [node name="Spatial" type="Spatial"]
 
@@ -238,3 +239,137 @@ food_to_spawn = ExtResource( 12 )
 [node name="FoodSpawnerFries" parent="restaurant/Spawners" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.31052, 10.2954 )
 food_to_spawn = ExtResource( 11 )
+
+[node name="Walls" type="Spatial" parent="restaurant"]
+
+[node name="sceneWall" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4853, 0, -25.2679 )
+
+[node name="sceneWall2" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5296, 0, -25.2679 )
+
+[node name="sceneWall3" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5649, 0, -25.2679 )
+
+[node name="sceneWall4" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61512, 0, -25.2679 )
+
+[node name="sceneWall5" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653893, 0, -25.2679 )
+
+[node name="sceneWall6" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29403, 0, -25.2679 )
+
+[node name="sceneWall7" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19479, 0, -25.2679 )
+
+[node name="sceneWall8" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1023, 0, -25.2679 )
+
+[node name="sceneWall9" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0548, 0, -25.2679 )
+
+[node name="sceneWall10" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0207, 0, -25.2679 )
+
+[node name="sceneWall11" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4803, 0, -25.2679 )
+
+[node name="sceneWall12" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25.3489, 0, 25.2927 )
+
+[node name="sceneWall13" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20.3932, 0, 25.2927 )
+
+[node name="sceneWall14" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15.4285, 0, 25.2927 )
+
+[node name="sceneWall15" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.4787, 0, 25.2927 )
+
+[node name="sceneWall16" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.5175, 0, 25.2927 )
+
+[node name="sceneWall17" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.569574, 0, 25.2927 )
+
+[node name="sceneWall18" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.33119, 0, 25.2927 )
+
+[node name="sceneWall19" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.23866, 0, 25.2927 )
+
+[node name="sceneWall20" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.1912, 0, 25.2927 )
+
+[node name="sceneWall21" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 19.1571, 0, 25.2927 )
+
+[node name="sceneWall22" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20.6167, 0, 25.2927 )
+
+[node name="sceneWall23" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, 25.1399 )
+
+[node name="sceneWall24" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, 20.2124 )
+
+[node name="sceneWall25" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, 15.3108 )
+
+[node name="sceneWall26" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, 10.3979 )
+
+[node name="sceneWall27" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, 5.51058 )
+
+[node name="sceneWall28" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, 0.593865 )
+
+[node name="sceneWall29" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, -4.32332 )
+
+[node name="sceneWall30" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, -9.28456 )
+
+[node name="sceneWall31" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, -14.2287 )
+
+[node name="sceneWall32" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, -19.0346 )
+
+[node name="sceneWall33" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6693, 0, -20.2235 )
+
+[node name="sceneWall34" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, 20.2749 )
+
+[node name="sceneWall35" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, 15.3474 )
+
+[node name="sceneWall36" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, 10.4458 )
+
+[node name="sceneWall37" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, 5.5329 )
+
+[node name="sceneWall38" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, 0.645565 )
+
+[node name="sceneWall39" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, -4.27115 )
+
+[node name="sceneWall40" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, -9.18833 )
+
+[node name="sceneWall41" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, -14.1496 )
+
+[node name="sceneWall42" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, -19.0937 )
+
+[node name="sceneWall43" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, -23.8996 )
+
+[node name="sceneWall44" parent="restaurant/Walls" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.6264, 0, -25.0885 )

@@ -11,10 +11,6 @@
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354154, 2.68342 )
-current = true
-
 [node name="KineBody_arm" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.807074, -0.590451, 0, 0.590451, 0.807074, 0, -0.467974, 0.443 )
 

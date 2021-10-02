@@ -81,7 +81,12 @@ func OnCustomerRequestingNewFood():
     return AvailableFoodSpawners[foodSpawnerIndex]
 
 func OnCustomerFoodJustServed(requestedFood, multiplier: float):
-    player.UpdateMoney(int(requestedFood.food_reward * multiplier))
+    var reward = 1.0
+    if requestedFood == null:
+        reward = 5
+    else:
+        reward = requestedFood.food_reward
+    player.UpdateMoney(int(reward * multiplier))
     
 func SetAvailableFoodSpawners(foodSpawners):
     AvailableFoodSpawners = foodSpawners

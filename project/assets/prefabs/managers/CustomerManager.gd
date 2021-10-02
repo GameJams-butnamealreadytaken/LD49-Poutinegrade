@@ -6,9 +6,13 @@ class_name CustomerManager
 var CustomersArray = []
 var CustomersStateArray = [[],[]] # Double array with [0] = idle / [1] = requesting
 
+var HUD = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+    var possiblePlayers = get_tree().get_nodes_in_group("player")
+    if possiblePlayers.empty():
+       return
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -18,7 +22,7 @@ func IsCustomerObjectValid(customer):
     return customer != null and customer.get_script().get_path() == "res://assets/prefabs/characters/scripts/Customer.gd"
         
 func RegisterCustomer(customer):
-    if IsCustomerObjectValid(customer):
+    if not IsCustomerObjectValid(customer):
         return
         
     CustomersArray.append(customer)
@@ -27,7 +31,7 @@ func RegisterCustomer(customer):
     #print_debug("New customer: "+customer.to_string())
 
 func UnregisterCustomer(customer):
-    if IsCustomerObjectValid(customer):
+    if not IsCustomerObjectValid(customer):
         return
         
     var iFindIndex = CustomersArray.find(customer)
@@ -36,16 +40,16 @@ func UnregisterCustomer(customer):
         #print_debug("Removed customer: "+customer.to_string())
 
 func GetCustomersCount():
-    return CustomersArray.count()
+    return CustomersArray.size()
     
 func GetCustomersRequestingCount():
-    return CustomersStateArray[1].count()
+    return CustomersStateArray[1].size()
     
 func GetCustomersIdleCount():
-    return CustomersStateArray[0].count()
+    return CustomersStateArray[0].size()
 
 func OnCustomerSwitchedState(customer, newState):
-    if IsCustomerObjectValid(customer):
+    if not IsCustomerObjectValid(customer):
         return
     
     # Remove customer from current state array
@@ -61,3 +65,6 @@ func OnCustomerSwitchedState(customer, newState):
     # Add customer in new state array
     CustomersStateArray[iNewState].append(customer)
  #   print_debug("Customer '"+customer.to_string()+"' switched state to '"+newState+"'")
+
+    # Update HUD values
+    HUD.set_label_clients_requesting_value(String(CustomersStateArray[1].size()))

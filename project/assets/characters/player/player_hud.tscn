@@ -10,6 +10,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 interaction_text_path = NodePath("InteractionText")
+label_clients_requesting_value_path = NodePath("ContainerClients/LabelClientsRequestingValue")
 
 [node name="InteractionText" type="RichTextLabel" parent="."]
 anchor_left = 0.5
@@ -43,5 +44,6 @@ text = "Clients requesting :"
 [node name="LabelClientsRequestingValue" type="Label" parent="ContainerClients"]
 margin_left = 128.0
 margin_top = 18.0
-margin_right = 128.0
+margin_right = 136.0
 margin_bottom = 32.0
+text = "0"

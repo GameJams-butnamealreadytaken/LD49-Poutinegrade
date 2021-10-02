@@ -7,6 +7,7 @@
 
 [node name="Croissant" type="Spatial"]
 script = ExtResource( 2 )
+rigid_body_path = NodePath("RigidBody")
 food_name = "Croissant"
 
 [node name="RigidBody" type="RigidBody" parent="."]

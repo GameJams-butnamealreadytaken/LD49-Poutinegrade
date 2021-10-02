@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/models/foodkit/burger.fbx" type="PackedScene" id=1]
+[ext_resource path="res://assets/prefabs/objects/food/food.gd" type="Script" id=2]
+
+[sub_resource type="CylinderShape" id=1]
+
+[node name="Burger" type="Spatial"]
+script = ExtResource( 2 )
+food_name = "Burger"
+
+[node name="RigidBody" type="RigidBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 0.185, 0, 0, 0, 0.146, 0, 0, 0, 0.183, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="burger" parent="RigidBody" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.145578, 0 )

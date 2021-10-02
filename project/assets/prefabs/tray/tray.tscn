@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/prefabs/tray/trayController.gd" type="Script" id=1]
 [ext_resource path="res://assets/prefabs/objects/food/apple.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/models/foodkit/cuttingBoard.fbx" type="PackedScene" id=3]
 [ext_resource path="res://assets/prefabs/objects/food/sodaCan.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/prefabs/characters/character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/prefabs/objects/food/burger.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/prefabs/objects/food/croissant.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/prefabs/objects/food/fries.tscn" type="PackedScene" id=7]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -14,39 +15,44 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354154, 1.66637 )
-
-[node name="KineBody_tray" type="KinematicBody" parent="."]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-script = ExtResource( 1 )
-
-[node name="cuttingBoard" parent="KineBody_tray" instance=ExtResource( 3 )]
-transform = Transform( -5.68248e-08, 0, 1.3, 0, 1.3, 0, -1.3, 0, -5.68248e-08, 0, -0.0260066, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="KineBody_tray"]
-transform = Transform( 0.535, 0, 0, 0, 0.026, 0, 0, 0, 0.377, 0, 0, 0 )
-shape = SubResource( 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354154, 2.68342 )
 
 [node name="Apple" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661509, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.182422, 0.661509, 0.173038 )
 
 [node name="SodaCan" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00958586, 0.554863, -0.188009 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0368052, 0.554863, -0.172671 )
 
-[node name="sceneCharacter" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.61482, -1.70964 )
+[node name="Croissant" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.378157, 0.478973, 0.150447 )
 
 [node name="KineBody_arm" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.807074, -0.590451, 0, 0.590451, 0.807074, 0, -0.429361, 0.443 )
+transform = Transform( 1, 0, 0, 0, 0.807074, -0.590451, 0, 0.590451, 0.807074, 0, -0.685075, 0.443 )
 
 [node name="Arm" type="CSGBox" parent="KineBody_arm"]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0 )
 width = 0.303
 height = 0.111
 depth = 1.199
 
 [node name="CollisionShape" type="CollisionShape" parent="KineBody_arm"]
 transform = Transform( 0.15, 0, 0, 0, 0.055, 0, 0, 0, 0.6, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="RigidBody_tray" type="RigidBody" parent="."]
+mode = 3
+script = ExtResource( 1 )
+rotation_max = 30.0
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody_tray"]
+transform = Transform( 1.07, 0, 0, 0, 0.052, 0, 0, 0, 0.754, 0, -0.230115, 0 )
 shape = SubResource( 2 )
 
-[node name="Croissant" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.328215, 0.478973, 0.0721218 )
+[node name="cuttingBoard" parent="RigidBody_tray" instance=ExtResource( 3 )]
+transform = Transform( -1.1365e-07, 0, 2.6, 0, 2.6, 0, -2.6, 0, -1.1365e-07, 0, -0.282128, 0 )
+
+[node name="Burger" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.583169, 0.362098, -0.168288 )
+
+[node name="Fries" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653055, 0.460883, -0.242189 )

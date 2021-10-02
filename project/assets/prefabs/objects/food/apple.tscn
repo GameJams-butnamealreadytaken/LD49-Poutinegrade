@@ -8,6 +8,7 @@ radius = 0.791608
 
 [node name="Apple" type="Spatial"]
 script = ExtResource( 2 )
+rigid_body_path = NodePath("RigidBody")
 food_name = "Apple"
 
 [node name="RigidBody" type="RigidBody" parent="."]

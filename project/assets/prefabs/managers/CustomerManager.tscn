@@ -2,5 +2,7 @@
 
 [ext_resource path="res://assets/prefabs/managers/CustomerManager.gd" type="Script" id=1]
 
-[node name="sceneCustomerManager" type="Spatial"]
+[node name="sceneCustomerManager" type="Spatial" groups=[
+"customer_manager",
+]]
 script = ExtResource( 1 )

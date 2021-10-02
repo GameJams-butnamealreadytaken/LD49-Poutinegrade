@@ -4,6 +4,7 @@
 [ext_resource path="res://assets/prefabs/characters/character.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
+radius = 1.33416
 height = 2.25239
 
 [node name="sceneCustomer" type="Area"]

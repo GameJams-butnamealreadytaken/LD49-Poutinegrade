@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
@@ -12,6 +12,11 @@
 [ext_resource path="res://assets/prefabs/objects/food/croissant.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/prefabs/objects/food/fries.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/prefabs/objects/food/sodaCan.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/prefabs/objects/food/beet.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/prefabs/objects/food/muffin.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/prefabs/objects/food/red_wine.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/prefabs/objects/food/sushi.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/prefabs/objects/food/taco.tscn" type="PackedScene" id=17]
 
 [node name="Spatial" type="Spatial"]
 
@@ -197,6 +202,26 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77974, 2.01046, 6.82765 )
 [node name="FoodSpawnerApple" parent="restaurant/Spawners" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 6.64979 )
 food_to_spawn = ExtResource( 8 )
+
+[node name="FoodSpawnerBeet" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 13 )
+
+[node name="FoodSpawnerMuffin" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9709, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 14 )
+
+[node name="FoodSpawnerRedWine" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1442, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 15 )
+
+[node name="FoodSpawnerSushi" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3825, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 16 )
+
+[node name="FoodSpawnerTaco" parent="restaurant/Spawners" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5968, 2.16534, 5.62414 )
+food_to_spawn = ExtResource( 17 )
 
 [node name="FoodSpawnerBurger" parent="restaurant/Spawners" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.16534, 7.87265 )

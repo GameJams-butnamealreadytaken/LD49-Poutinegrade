@@ -69,6 +69,9 @@ func _process(delta):
         if ElapsedTime >= RequestingThreshold:
             ElapsedTime = 0
             ServeRequestedFood(null)
+        else:
+            var mat = $Billboard/spriteTimer.get_material_override()
+            mat.set_shader_param("elapsed_time", ElapsedTime)
 
 func IsIdle():
     return Idle;
@@ -82,7 +85,6 @@ func ServeRequestedFood(food: Food):
         
     var keepRequestingFood = false
     var foodServedMultiplier = 1
-    var foodServed = RequestedFood
     if food == null: # requesting time reached
         foodServedMultiplier = -1
     elif not food.food_name == RequestedFood.food_name:
@@ -130,16 +132,21 @@ func SwitchState():
     # Update idle threshold
     if Idle:
         IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
+        $Billboard/spriteTimer.set_visible(true)
     else:
         RequestingThreshold = Rnd.randi_range(RequestingThresholdMin, RequestingThresholdMax)        
+        $Billboard/spriteTimer.set_visible(true)
+        var mat = $Billboard/spriteTimer.get_material_override()
+        mat.set_shader_param("elapsed_time", 0)
+        mat.set_shader_param("total_time", RequestingThreshold)
+        
 
-func interact(_instigator):
-    #tmp
-    var food = load("res://assets/prefabs/objects/food/apple.tscn").instance()
-    add_child(food)
-    var apple = find_node("Apple", true, false) as Food
+func interact(_instigator: Player):
+    if RequestedFood == null:
+        return
+        
+    var tray_food = _instigator.tray.get_food_object(RequestedFood.food_name)
     
-    ServeRequestedFood(apple)
-    
-    #tmp
-    apple.queue_free()
+    if tray_food != null:
+        ServeRequestedFood(tray_food)
+        tray_food.queue_free()

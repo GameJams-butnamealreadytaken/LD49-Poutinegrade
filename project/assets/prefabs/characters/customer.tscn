@@ -6,15 +6,19 @@
 [sub_resource type="CapsuleShape" id=1]
 height = 2.25239
 
-[node name="sceneCustomer" type="Spatial"]
+[node name="sceneCustomer" type="Area"]
+collision_layer = 2
 script = ExtResource( 1 )
 CharacterType = "Robot"
 
 [node name="sceneCharacter" parent="." instance=ExtResource( 2 )]
 
 [node name="sceneCharacterStaticBody" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 
 [node name="sceneCharacterCollisionShape" type="CollisionShape" parent="sceneCharacterStaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.829e-08, 2.01984 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.00807, 0 )
+shape = SubResource( 1 )
+
+[node name="sceneCharacterCollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.00807, 0 )
 shape = SubResource( 1 )

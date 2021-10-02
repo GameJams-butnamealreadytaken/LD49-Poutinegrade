@@ -8,14 +8,12 @@ var CustomersStateArray = [[],[]] # Double array with [0] = idle / [1] = request
 var rng = RandomNumberGenerator.new()
 
 # Variables set by the script 'restaurant'
-var HUD = null
+var player = null
 var AvailableFoodSpawners = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    var possiblePlayers = get_tree().get_nodes_in_group("player")
-    if possiblePlayers.empty():
-       return
+    pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -74,13 +72,16 @@ func OnCustomerSwitchedState(customer, newState):
  #   print_debug("Customer '"+customer.to_string()+"' switched state to '"+newState+"'")
 
     # Update HUD values
-    HUD.set_label_clients_requesting_value(String(CustomersStateArray[1].size()))
+    player.hud.set_label_clients_requesting_value(String(CustomersStateArray[1].size()))
     
     
-func OnCustomerRequestingNewFood() -> FoodSpawner:
+func OnCustomerRequestingNewFood():
     rng.randomize()
     var foodSpawnerIndex = rng.randi_range(0, AvailableFoodSpawners.size()-1)
     return AvailableFoodSpawners[foodSpawnerIndex]
 
+func OnCustomerBadFoodServed(requestedFood):
+    player.UpdateMoney(int(-requestedFood.food_reward * 0.5))
+    
 func SetAvailableFoodSpawners(foodSpawners):
     AvailableFoodSpawners = foodSpawners

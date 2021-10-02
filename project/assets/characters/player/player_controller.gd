@@ -93,3 +93,6 @@ func update_hud(_delta: float) -> void:
         hud.set_interaction_text(nearest_interactable.display_text)
     else:
         hud.set_interaction_text("")
+
+func UpdateMoney(amount: int):
+    money += amount

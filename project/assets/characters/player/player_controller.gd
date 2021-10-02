@@ -1,5 +1,6 @@
 extends KinematicBody
 
+class_name Player
 
 export(NodePath) var camera_path
 onready var camera := get_node(camera_path) as Camera
@@ -23,6 +24,8 @@ var hud: PlayerHUD
 
 var money: float = 0.0
 
+var tray: TrayManager
+
 var desired_direction: Vector3
 var desired_rotation_direction: int
 var current_velocity: Vector3
@@ -31,7 +34,7 @@ var nearest_interactable: Interactable
 
 
 func _ready() -> void:
-    var tray := tray_scene.instance()
+    tray = tray_scene.instance()
     tray_anchor.add_child(tray)
     
     hud = hud_scene.instance() as PlayerHUD

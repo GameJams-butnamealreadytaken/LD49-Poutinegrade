@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/prefabs/tray/trayController.gd" type="Script" id=1]
+[ext_resource path="res://assets/prefabs/tray/trayManager.gd" type="Script" id=2]
 [ext_resource path="res://assets/models/foodkit/cuttingBoard.fbx" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
@@ -8,13 +9,14 @@
 [sub_resource type="BoxShape" id=2]
 
 [node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354154, 2.68342 )
 current = true
 
 [node name="KineBody_arm" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.807074, -0.590451, 0, 0.590451, 0.807074, 0, -0.685075, 0.443 )
+transform = Transform( 1, 0, 0, 0, 0.807074, -0.590451, 0, 0.590451, 0.807074, 0, -0.467974, 0.443 )
 
 [node name="Arm" type="CSGBox" parent="KineBody_arm"]
 transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0 )
@@ -31,8 +33,14 @@ mode = 3
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody_tray"]
-transform = Transform( 1.07, 0, 0, 0, 0.052, 0, 0, 0, 0.754, 0, -0.230115, 0 )
+transform = Transform( 1.07, 0, 0, 0, 0.052, 0, 0, 0, 0.754, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="cuttingBoard" parent="RigidBody_tray" instance=ExtResource( 3 )]
-transform = Transform( -1.1365e-07, 0, 2.6, 0, 2.6, 0, -2.6, 0, -1.1365e-07, 0, -0.282128, 0 )
+transform = Transform( -1.1365e-07, 0, 2.6, 0, 2.6, 0, -2.6, 0, -1.1365e-07, 0, -0.0527236, 0 )
+
+[node name="FoodLimit" type="Area" parent="RigidBody_tray"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody_tray/FoodLimit"]
+transform = Transform( 1.2, 0, 0, 0, 0.17, 0, 0, 0, 0.85, 0, 0.192868, 0 )
+shape = SubResource( 2 )

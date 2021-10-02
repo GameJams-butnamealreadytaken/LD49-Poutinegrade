@@ -69,7 +69,6 @@ func _process(delta):
         if ElapsedTime >= RequestingThreshold:
             ElapsedTime = 0
             ServeRequestedFood(null)
-    return
 
 func IsIdle():
     return Idle;
@@ -82,9 +81,9 @@ func ServeRequestedFood(food: Food):
         return
         
     var keepRequestingFood = false
-    var foodServedMultiplier = RequestedFood.food_reward
+    var foodServedMultiplier = 1
     var foodServed = RequestedFood
-    if food == null:
+    if food == null: # requesting time reached
         foodServedMultiplier = -1
     elif not food.food_name == RequestedFood.food_name:
         keepRequestingFood = true
@@ -129,9 +128,10 @@ func SwitchState():
     Idle = !Idle
     
     # Update idle threshold
-    if !Idle:
-        RequestingThreshold = Rnd.randi_range(RequestingThresholdMin, RequestingThresholdMax)        
+    if Idle:
         IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
+    else:
+        RequestingThreshold = Rnd.randi_range(RequestingThresholdMin, RequestingThresholdMax)        
 
 func interact(_instigator):
     #tmp

@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/models/furniturekit/tableRound.fbx" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 3.41856, 1.82185, 2.03604 )
 
 [node name="sceneTable" type="Spatial"]
 
 [node name="tableRound" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.74011, 1.38811, -1.99197 )
+
+[node name="tableRoundStaticBody" type="StaticBody" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="tableRoundCollisionShape2" type="CollisionShape" parent="tableRoundStaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91905, 0 )
+shape = SubResource( 1 )
+
+[node name="tableRoundCollisionShape3" type="CollisionShape" parent="tableRoundStaticBody"]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 1.91905, 0 )
+shape = SubResource( 1 )
+
+[node name="tableRoundCollisionShape4" type="CollisionShape" parent="tableRoundStaticBody"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 1.91905, 0 )
+shape = SubResource( 1 )

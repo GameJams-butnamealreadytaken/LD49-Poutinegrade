@@ -5,8 +5,16 @@ func _ready():
     var customerManagers = get_tree().get_nodes_in_group("customer_manager")
     var players = get_tree().get_nodes_in_group("player")
     
-    if not players.empty() and not customerManagers.empty():
-        customerManagers[0].HUD = players[0].hud
+    if customerManagers.empty():
+        return
+    if players.empty():
+        return
+    if foodSpawners.empty():
+        return
+    
+    # Setup links between managers and classes
+    customerManagers[0].HUD = players[0].hud
+    customerManagers[0].SetAvailableFoodSpawners(foodSpawners)
     
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

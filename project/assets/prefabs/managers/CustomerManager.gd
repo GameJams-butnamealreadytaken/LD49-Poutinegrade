@@ -5,8 +5,11 @@ class_name CustomerManager
 # var
 var CustomersArray = []
 var CustomersStateArray = [[],[]] # Double array with [0] = idle / [1] = requesting
+var rng = RandomNumberGenerator.new()
 
+# Variables set by the script 'restaurant'
 var HUD = null
+var AvailableFoodSpawners = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,7 +54,11 @@ func GetCustomersIdleCount():
 func OnCustomerSwitchedState(customer, newState):
     if not IsCustomerObjectValid(customer):
         return
-    
+        
+    # Custom action according to new state
+    if newState:
+        customer.RequestNewFood(OnCustomerRequestingNewFood().food_to_spawn)
+
     # Remove customer from current state array
     var iNewState = int(newState)
     var iOldState = int(!newState)
@@ -68,3 +75,12 @@ func OnCustomerSwitchedState(customer, newState):
 
     # Update HUD values
     HUD.set_label_clients_requesting_value(String(CustomersStateArray[1].size()))
+    
+    
+func OnCustomerRequestingNewFood() -> FoodSpawner:
+    rng.randomize()
+    var foodSpawnerIndex = rng.randi_range(0, AvailableFoodSpawners.size()-1)
+    return AvailableFoodSpawners[foodSpawnerIndex]
+
+func SetAvailableFoodSpawners(foodSpawners):
+    AvailableFoodSpawners = foodSpawners

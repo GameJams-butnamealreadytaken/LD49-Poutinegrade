@@ -25,10 +25,17 @@ func _on_body_enter(body: Node) -> void:
         if object_id == -1:
             food_list.push_back(body.get_owner())
 
+func compute_food_position_on_tray() -> Transform: 
+    var localUpwardOffset = Vector3(0.0, 0.3, 0.0)
+    
+    var localOffset = localUpwardOffset
+    var newTransform = $RigidBody_tray.global_transform.translated(localOffset)
+    return newTransform
+
 func add_food(food_object: PackedScene) -> void:
     var food_instance = food_object.instance()
     get_tree().get_root().add_child(food_instance)
-    food_instance.transform = global_transform
+    food_instance.transform = compute_food_position_on_tray()
     food_list.push_back(food_instance)
 
 func apply_player_velocity(velocity: Vector3) -> void:

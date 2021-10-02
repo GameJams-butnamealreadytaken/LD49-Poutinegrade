@@ -69,6 +69,9 @@ func _process(delta):
         if ElapsedTime >= RequestingThreshold:
             ElapsedTime = 0
             ServeRequestedFood(null)
+        else:
+            var mat = $Billboard/spriteTimer.get_material_override()
+            mat.set_shader_param("elapsed_time", ElapsedTime)
 
 func IsIdle():
     return Idle;
@@ -129,8 +132,14 @@ func SwitchState():
     # Update idle threshold
     if Idle:
         IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
+        $Billboard/spriteTimer.set_visible(true)
     else:
         RequestingThreshold = Rnd.randi_range(RequestingThresholdMin, RequestingThresholdMax)        
+        $Billboard/spriteTimer.set_visible(true)
+        var mat = $Billboard/spriteTimer.get_material_override()
+        mat.set_shader_param("elapsed_time", 0)
+        mat.set_shader_param("total_time", RequestingThreshold)
+        
 
 func interact(_instigator: Player):
     if RequestedFood == null:

@@ -132,13 +132,12 @@ func SwitchState():
     else:
         RequestingThreshold = Rnd.randi_range(RequestingThresholdMin, RequestingThresholdMax)        
 
-func interact(_instigator):
-    #tmp
-    var food = load("res://assets/prefabs/objects/food/apple.tscn").instance()
-    add_child(food)
-    var apple = find_node("Apple", true, false) as Food
+func interact(_instigator: Player):
+    if RequestedFood == null:
+        return
+        
+    var tray_food = _instigator.tray.get_food_object(RequestedFood.food_name)
     
-    ServeRequestedFood(apple)
-    
-    #tmp
-    apple.queue_free()
+    if tray_food != null:
+        ServeRequestedFood(tray_food)
+        tray_food.queue_free()

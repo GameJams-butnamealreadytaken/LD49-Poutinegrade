@@ -1,10 +1,12 @@
 extends Spatial
 
+class_name Customer
+
 # var forwarded
 export(String, "Adventurer", "Man", "ManAlternative", "Orc", "Robot", "Soldier", "Woman", "WomanAlternative") var CharacterType
 
 # var
-var RequestedMenuItem = null
+var RequestedFoodItem = null
 var Idle = true
 var Valid = false
 export var IdleThresholdMin = 1
@@ -12,6 +14,7 @@ export var IdleThresholdMax = 30
 var Rnd = RandomNumberGenerator.new()
 var IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax) # Is then updated at each new Idle state
 var IdleElapsedTime = 0
+var customerManager = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,19 +23,15 @@ func _ready():
     $sceneCharacter.SetCharacterType(CharacterType)
     $sceneCharacter.SetupMaterials()
     
-    if get_parent().get_script() == null:
+    customerManager = get_parent() as CustomerManager
+    if customerManager == null:
         print("Cannot create customer, parent node does not possess script 'CustomerManager'.")
-    elif not get_parent().get_script().get_path() == "res://assets/prefabs/managers/CustomerManager.gd":
-        print("Cannot create customer, parent node does not possess script 'CustomerManager'.")
-    elif $sceneCharacter.get_script() == null:
-        print("Cannot create customer, child node does not possess script 'CharacterChooser'.")
-    elif not $sceneCharacter.get_script().get_path() == "res://assets/prefabs/characters/scripts/CharacterChooser.gd":
-        print("Cannot create customer, child node does not possess script 'CharacterChooser'.")
-    else:
-        Valid = true
+        return
         
-        # Register customer
-        get_parent().RegisterCustomer(self)
+    Valid = true
+    
+    # Register customer
+    customerManager.RegisterCustomer(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -52,22 +51,33 @@ func IsIdle():
 func IsRequesting():
     return !Idle
 
-func IsFoodItemObjectValid(item):
-    return true
-    #return item != null and item.is_class("FoodItem")
-        
 func ServeRequestItem(item):
-    if not IsFoodItemObjectValid(item):
+    var itemObject = item as Food
+    if itemObject == null:
         return
     elif Idle:
         return
-    elif not item.GetFoodType() == RequestedMenuItem.GetFoodType():
+    elif not itemObject.food_name == RequestedFoodItem.food_name:
         return
     
     # Remove requested item and switch state
-    RequestedMenuItem = null
+    RequestedFoodItem = null
     SwitchState()
-
+        
+func RequestItem(item):
+    var itemObject = item as Food
+    if itemObject == null:
+        return
+    elif !Idle:
+        return
+    
+    # Update requested item
+    RequestedFoodItem = itemObject
+    
+    # Update visualization
+    var side_decal = $sceneCharacter/character.position().x + 1
+    var sceneFood = load("res://")
+    
 func SwitchState():
     Idle = !Idle
     
@@ -76,4 +86,4 @@ func SwitchState():
         IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
     
     # Notify CustomerManager
-    get_parent().OnCustomerSwitchedState(self, Idle)
+    customerManager.OnCustomerSwitchedState(self, Idle)

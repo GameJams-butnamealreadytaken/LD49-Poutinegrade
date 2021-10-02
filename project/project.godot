@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Spatial",
+"class": "Customer",
+"language": "GDScript",
+"path": "res://assets/prefabs/characters/scripts/Customer.gd"
+}, {
+"base": "Node",
+"class": "CustomerManager",
+"language": "GDScript",
+"path": "res://assets/prefabs/managers/CustomerManager.gd"
+}, {
+"base": "Spatial",
 "class": "Food",
 "language": "GDScript",
 "path": "res://assets/prefabs/objects/food/food.gd"
@@ -25,6 +35,8 @@ _global_script_classes=[ {
 "path": "res://assets/characters/player/player_hud.gd"
 } ]
 _global_script_class_icons={
+"Customer": "",
+"CustomerManager": "",
 "Food": "",
 "Interactable": "",
 "PlayerHUD": ""
@@ -41,7 +53,6 @@ config/icon="res://icon.png"
 move_forward={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
  ]
 }
 move_backward={

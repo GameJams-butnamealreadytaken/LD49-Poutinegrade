@@ -1,12 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/prefabs/tray/trayController.gd" type="Script" id=1]
-[ext_resource path="res://assets/prefabs/objects/food/apple.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/models/foodkit/cuttingBoard.fbx" type="PackedScene" id=3]
-[ext_resource path="res://assets/prefabs/objects/food/sodaCan.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/prefabs/objects/food/burger.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/prefabs/objects/food/croissant.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/prefabs/objects/food/fries.tscn" type="PackedScene" id=7]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -16,15 +11,7 @@
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354154, 2.68342 )
-
-[node name="Apple" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.182422, 0.661509, 0.173038 )
-
-[node name="SodaCan" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0368052, 0.554863, -0.172671 )
-
-[node name="Croissant" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.378157, 0.478973, 0.150447 )
+current = true
 
 [node name="KineBody_arm" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.807074, -0.590451, 0, 0.590451, 0.807074, 0, -0.685075, 0.443 )
@@ -42,7 +29,6 @@ shape = SubResource( 1 )
 [node name="RigidBody_tray" type="RigidBody" parent="."]
 mode = 3
 script = ExtResource( 1 )
-rotation_max = 30.0
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody_tray"]
 transform = Transform( 1.07, 0, 0, 0, 0.052, 0, 0, 0, 0.754, 0, -0.230115, 0 )
@@ -50,9 +36,3 @@ shape = SubResource( 2 )
 
 [node name="cuttingBoard" parent="RigidBody_tray" instance=ExtResource( 3 )]
 transform = Transform( -1.1365e-07, 0, 2.6, 0, 2.6, 0, -2.6, 0, -1.1365e-07, 0, -0.282128, 0 )
-
-[node name="Burger" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.583169, 0.362098, -0.168288 )
-
-[node name="Fries" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653055, 0.460883, -0.242189 )

@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/prefabs/objects/kitchenbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/prefabs/managers/CustomerManager.tscn" type="PackedScene" id=4]
 
 [sub_resource type="VisualShaderNodeColorConstant" id=1]
 constant = Color( 0.537109, 0.264359, 0, 1 )
@@ -159,3 +161,87 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0139, 0, -19 )
 
 [node name="sceneTable11" parent="tables" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0139, 0, -6 )
+
+[node name="sceneCustomerManager" parent="." instance=ExtResource( 4 )]
+
+[node name="sceneCustomer" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98613, 0, 8.28632 )
+
+[node name="sceneCustomer2" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74724, 0, 4.68046 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer3" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.860689, 0, 0.509132, 0, 1, 0, -0.509132, 0, -0.860689, -2.98613, 0, 15.3047 )
+CharacterType = "Woman"
+
+[node name="sceneCustomer4" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.860689, 0, 0.509132, 0, 1, 0, -0.509132, 0, -0.860689, -14.4003, 0, 7.90833 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer5" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.860689, 0, 0.509132, 0, 1, 0, -0.509132, 0, -0.860689, -20.4129, 0, -13.3329 )
+CharacterType = "Woman"
+
+[node name="sceneCustomer6" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, -24.2, 0, -3.08953 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer7" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, -11.1135, 0, -12.7709 )
+
+[node name="sceneCustomer8" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, 1.12365, 0, -20.4983 )
+CharacterType = "Woman"
+
+[node name="sceneCustomer9" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, -14.9345, 0, 17.1119 )
+CharacterType = "WomanAlternative"
+
+[node name="sceneCustomer10" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.916656, 0, 0.399677, 0, 1, 0, -0.399677, 0, -0.916656, -21.7679, 0, 14.4104 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer11" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.916656, 0, 0.399677, 0, 1, 0, -0.399677, 0, -0.916656, 11.0335, 0, -3.57331 )
+
+[node name="sceneCustomer12" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 13.3087, 4.76837e-07, -8.27427 )
+CharacterType = "Woman"
+
+[node name="sceneCustomer13" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 20.5812, 1.43051e-06, -21.7242 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer14" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.903619, 0, 0.428336, 0, 1, 0, -0.428336, 0, -0.903619, 16.3937, 1.43051e-06, -16.6232 )
+CharacterType = "ManAlternative"
+
+[node name="sceneCustomer15" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( -0.903619, 0, 0.428336, 0, 1, 0, -0.428336, 0, -0.903619, -4.83543, 1.43051e-06, 0.336116 )
+
+[node name="sceneCustomer16" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.781292, 0, -0.624166, 0, 1, 0, 0.624166, 0, 0.781292, -1.40874, 1.43051e-06, -4.23995 )
+CharacterType = "Orc"
+
+[node name="sceneCustomer17" parent="sceneCustomerManager" instance=ExtResource( 2 )]
+pause_mode = 1
+transform = Transform( 0.781292, 0, -0.624166, 0, 1, 0, 0.624166, 0, 0.781292, -18.8323, 1.43051e-06, -3.84203 )
+CharacterType = "Woman"
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.794404, 0, -0.60739, 0, 1, 0, 0.60739, 0, 0.794404, -7.14691, 3.4937, 9.41818 )

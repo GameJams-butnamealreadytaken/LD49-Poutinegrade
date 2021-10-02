@@ -1,16 +1,19 @@
 extends RigidBody
 
 export(float) var rotation_speed = 1.0
-export(float) var rotation_max = 45.0
+export(float) var rotation_max = 30.0
 
 var rot_angle_z = 0.0
 var rot_angle_x = 0.0
+
+var parent
 
 var current_scale
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
     current_scale = transform.basis.get_scale()
+    parent = get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,6 +26,11 @@ func _process(delta):
         
         if rotation_x > rotation_max or rotation_z > rotation_max:
             mode = MODE_RIGID
+            var transfo = global_transform
+            var root = get_tree().get_root()
+            parent.remove_child(self)
+            root.add_child(self)
+            transform = transfo
     
         if Input.is_action_pressed("tray_front"):
             rot_angle_x = -rotation_speed * delta
@@ -38,6 +46,8 @@ func _process(delta):
         resetTray()
     
 func resetTray():
+    get_parent().remove_child(self)
+    parent.add_child(self)
     mode = MODE_KINEMATIC
     transform.basis = Basis()
     transform = transform.basis.scaled(current_scale)

@@ -1,6 +1,9 @@
-[gd_resource type="VisualShader" load_steps=2 format=2]
+[gd_resource type="VisualShader" load_steps=3 format=2]
+
+[ext_resource path="res://assets/models/characters/Skins/Basic/skin_soldier.png" type="Texture" id=1]
 
 [sub_resource type="VisualShaderNodeTexture" id=1]
+texture = ExtResource( 1 )
 
 [resource]
 code = "shader_type spatial;
@@ -34,4 +37,4 @@ void light() {
 graph_offset = Vector2( -15.3053, -28 )
 nodes/fragment/2/node = SubResource( 1 )
 nodes/fragment/2/position = Vector2( 80, 100 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 2, 0, 0, 0 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )

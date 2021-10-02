@@ -81,17 +81,17 @@ func process_movement(delta: float) -> void:
     else:
         new_velocity = current_velocity.linear_interpolate(Vector3(), deceleration * delta)
     
-    var rotaval = deg2rad(rotation_speed * -desired_rotation_direction * delta)
-    
-    if rotaval != 0.0:
-        tray.apply_player_rotation(rotaval, global_transform.origin)
-        rotate_y(rotaval)
     
     last_velocity = current_velocity
     current_velocity = move_and_slide(new_velocity, Vector3.UP)
     
     tray.apply_player_velocity(current_velocity - last_velocity)
     
+    var rotaval = deg2rad(rotation_speed * -desired_rotation_direction * delta)
+    
+    if rotaval != 0.0:
+        tray.apply_player_rotation(rotaval, global_transform.origin)
+        rotate_y(rotaval)
 
 func process_raycasts(_delta: float) -> void:
     if tray and !tray.is_in_kinematic_state():

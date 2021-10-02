@@ -39,5 +39,13 @@ func apply_player_rotation(rotation: float, player_location: Vector3) -> void:
     for item in food_list:
         item.apply_player_rotation(rotation, player_location);
 
+func get_food_object(food_name: String) -> Food:
+    for i in range(0, food_list.size()):
+        var food = food_list[i]
+        if food_name == food.food_name:
+            food_list.remove(i)
+            return food
+    return null
+
 func is_in_kinematic_state() -> bool:
     return tray_controller.is_in_kinematic_state()

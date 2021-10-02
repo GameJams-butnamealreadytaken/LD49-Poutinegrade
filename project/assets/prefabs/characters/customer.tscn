@@ -10,7 +10,6 @@ height = 2.25239
 [node name="sceneCustomer" type="Area"]
 collision_layer = 2
 script = ExtResource( 1 )
-CharacterType = "Robot"
 
 [node name="sceneCharacter" parent="." instance=ExtResource( 2 )]
 

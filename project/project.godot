@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "Food",
+"language": "GDScript",
+"path": "res://assets/prefabs/objects/food/food.gd"
+}, {
 "base": "Area",
 "class": "Interactable",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://assets/characters/player/player_hud.gd"
 } ]
 _global_script_class_icons={
+"Food": "",
 "Interactable": "",
 "PlayerHUD": ""
 }

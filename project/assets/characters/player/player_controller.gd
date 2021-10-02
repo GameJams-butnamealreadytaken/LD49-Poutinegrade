@@ -79,11 +79,11 @@ func process_movement(delta: float) -> void:
     current_velocity = move_and_slide(new_velocity, Vector3.UP)
 
 
-func process_raycasts(delta: float) -> void:
+func process_raycasts(_delta: float) -> void:
     nearest_interactable = interactable_detector.get_collider() as Interactable
 
 
-func update_hud(delta: float) -> void:
+func update_hud(_delta: float) -> void:
     if nearest_interactable != null:
         hud.set_interaction_text(nearest_interactable.display_text)
     else:

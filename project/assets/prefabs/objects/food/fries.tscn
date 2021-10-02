@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/models/foodkit/fries.fbx" type="PackedScene" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+
+[node name="Fries" type="Spatial"]
+
+[node name="RigidBody" type="RigidBody" parent="."]
+
+[node name="fries" parent="RigidBody" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.200216, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 0.102, 0, 0, 0, 0.198, 0, 0, 0, 0.136, 0, 0, 0 )
+shape = SubResource( 1 )

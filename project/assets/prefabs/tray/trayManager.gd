@@ -10,6 +10,7 @@ var food_list = []
 
 func _ready():
     var _error = $RigidBody_tray/FoodLimit.connect("body_exited", self, "_on_body_exit")
+    _error = $RigidBody_tray/FoodLimit.connect("body_entered", self, "_on_body_enter")
     
 func _process(_delta):
     pass
@@ -18,6 +19,13 @@ func _on_body_exit(body: Node):
     var object_id = food_list.find(body.get_owner())
     if object_id != -1:
         food_list.remove(object_id)
+        
+func _on_body_enter(body: Node):
+    var entering_object = body.get_owner() as Food
+    if entering_object != null:
+        var object_id = food_list.find(body.get_owner())
+        if object_id == -1:
+            food_list.push_back(body.get_owner())
 
 func add_food(food_object: PackedScene):
     var food_instance = food_object.instance()

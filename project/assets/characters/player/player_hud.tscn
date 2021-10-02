@@ -11,6 +11,7 @@ __meta__ = {
 }
 interaction_text_path = NodePath("InteractionText")
 label_clients_requesting_value_path = NodePath("ContainerClients/LabelClientsRequestingValue")
+label_money_value_path = NodePath("ContainerMoney/LabelMoneyValue")
 
 [node name="InteractionText" type="RichTextLabel" parent="."]
 anchor_left = 0.5
@@ -45,5 +46,28 @@ text = "Clients requesting :"
 margin_left = 128.0
 margin_top = 18.0
 margin_right = 136.0
+margin_bottom = 32.0
+text = "0"
+
+[node name="ContainerMoney" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -200.0
+margin_top = 50.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelMoney" type="Label" parent="ContainerMoney"]
+margin_top = 18.0
+margin_right = 51.0
+margin_bottom = 32.0
+text = "Money :"
+
+[node name="LabelMoneyValue" type="Label" parent="ContainerMoney"]
+margin_left = 55.0
+margin_top = 18.0
+margin_right = 63.0
 margin_bottom = 32.0
 text = "0"

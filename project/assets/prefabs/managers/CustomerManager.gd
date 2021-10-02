@@ -80,8 +80,8 @@ func OnCustomerRequestingNewFood():
     var foodSpawnerIndex = rng.randi_range(0, AvailableFoodSpawners.size()-1)
     return AvailableFoodSpawners[foodSpawnerIndex]
 
-func OnCustomerBadFoodServed(requestedFood):
-    player.UpdateMoney(int(-requestedFood.food_reward * 0.5))
+func OnCustomerFoodJustServed(requestedFood, multiplier: float):
+    player.UpdateMoney(int(requestedFood.food_reward * multiplier))
     
 func SetAvailableFoodSpawners(foodSpawners):
     AvailableFoodSpawners = foodSpawners

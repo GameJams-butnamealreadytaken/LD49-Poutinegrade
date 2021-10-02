@@ -69,14 +69,18 @@ func ServeRequestedFood(food: Food):
     elif Idle:
         return
     elif not food.food_name == RequestedFood.food_name:
-        customerManager.OnCustomerBadFoodServed(food)
+        customerManager.OnCustomerFoodJustServed(food, -0.5)
         return
     
+    # Update money
+    customerManager.OnCustomerFoodJustServed(food, 1.0)
+        
     # Remove requested item and switch state
     RequestedFoodScene = null
     RequestedFood.queue_free()
     RequestedFood = null
     
+    # Switch State
     SwitchState()
         
 func RequestNewFood(foodScene: PackedScene):
@@ -109,7 +113,12 @@ func SwitchState():
         IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
 
 func interact(_instigator):
+    #tmp
     var food = load("res://assets/prefabs/objects/food/apple.tscn").instance()
     add_child(food)
     var apple = find_node("Apple", true, false) as Food
+    
     ServeRequestedFood(apple)
+    
+    #tmp
+    apple.queue_free()

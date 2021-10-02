@@ -96,3 +96,4 @@ func update_hud(_delta: float) -> void:
 
 func UpdateMoney(amount: int):
     money += amount
+    hud.set_label_money_value(String(money))

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/models/foodkit/taco.fbx" type="PackedScene" id=1]
+[ext_resource path="res://assets/prefabs/objects/food/food.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.63954, 1.08889, 0.458735 )
+
+[node name="Taco" type="Spatial"]
+script = ExtResource( 2 )
+rigid_body_path = NodePath("RigidBody")
+food_name = "Taco"
+food_reward = 10.0
+
+[node name="RigidBody" type="RigidBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0.0431343, 0 )
+shape = SubResource( 1 )
+
+[node name="taco" parent="RigidBody" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0989781, 0 )

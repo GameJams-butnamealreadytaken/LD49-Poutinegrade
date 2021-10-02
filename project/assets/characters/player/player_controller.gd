@@ -21,6 +21,8 @@ export(float) var rotation_speed := 70.0
 
 var hud: PlayerHUD
 
+var money: float = 0.0
+
 var desired_direction: Vector3
 var desired_rotation_direction: int
 var current_velocity: Vector3

@@ -7,6 +7,7 @@ export(NodePath) var rigid_body_path
 onready var rigid_body := get_node(rigid_body_path) as RigidBody
 
 export(String) var food_name := "No Name"
+export(float) var food_reward := 0.0
 
 
 func make_food_static() -> void:

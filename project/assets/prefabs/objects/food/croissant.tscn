@@ -9,6 +9,7 @@
 script = ExtResource( 2 )
 rigid_body_path = NodePath("RigidBody")
 food_name = "Croissant"
+food_reward = 2.0
 
 [node name="RigidBody" type="RigidBody" parent="."]
 

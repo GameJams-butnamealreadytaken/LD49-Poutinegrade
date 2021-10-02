@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/models/foodkit/beet.fbx" type="PackedScene" id=1]
+[ext_resource path="res://assets/prefabs/objects/food/food.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.35223
+height = 0.0748696
+
+[node name="Beet" type="Spatial"]
+script = ExtResource( 2 )
+rigid_body_path = NodePath("RigidBody")
+food_name = "Beet"
+food_reward = 10.0
+
+[node name="RigidBody" type="RigidBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 0.13, 0, 0, 0, -5.68248e-09, -0.13, 0, 0.13, -5.68248e-09, 0, -0.00694898, 0 )
+shape = SubResource( 1 )
+
+[node name="beet" parent="RigidBody" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0615622, 0 )

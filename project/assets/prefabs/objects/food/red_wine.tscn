@@ -1,21 +1,22 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/models/foodkit/burger.fbx" type="PackedScene" id=1]
+[ext_resource path="res://assets/models/foodkit/wineRed.fbx" type="PackedScene" id=1]
 [ext_resource path="res://assets/prefabs/objects/food/food.gd" type="Script" id=2]
 
 [sub_resource type="CylinderShape" id=1]
+radius = 0.102467
+height = 0.672945
 
-[node name="Burger" type="Spatial"]
+[node name="RedWine" type="Spatial"]
 script = ExtResource( 2 )
 rigid_body_path = NodePath("RigidBody")
-food_name = "Burger"
-food_reward = 6.0
+food_name = "Red Wine"
+food_reward = 20.0
 
 [node name="RigidBody" type="RigidBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
-transform = Transform( 0.185, 0, 0, 0, 0.146, 0, 0, 0, 0.183, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33811, 0 )
 shape = SubResource( 1 )
 
-[node name="burger" parent="RigidBody" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.145578, 0 )
+[node name="wineRed" parent="RigidBody" instance=ExtResource( 1 )]

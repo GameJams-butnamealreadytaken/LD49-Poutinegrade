@@ -1,8 +1,9 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/scenes/objects/table.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/scenes/objects/wall.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/scenes/objects/kitchenbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/prefabs/objects/wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/prefabs/objects/kitchenbar.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="VisualShaderNodeColorConstant" id=1]
 constant = Color( 0.537109, 0.264359, 0, 1 )

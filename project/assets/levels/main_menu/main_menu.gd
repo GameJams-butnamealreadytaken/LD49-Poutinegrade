@@ -2,8 +2,8 @@ extends Control
 
 
 func _ready() -> void:
-    pass
+	pass
 
 
 func _on_QuitButton_pressed() -> void:
-    get_tree().quit()
+	get_tree().quit()

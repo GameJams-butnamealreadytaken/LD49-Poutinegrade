@@ -28,6 +28,7 @@ var tray: TrayManager
 
 var desired_direction: Vector3
 var desired_rotation_direction: int
+var last_velocity: Vector3
 var current_velocity: Vector3
 
 var nearest_interactable: Interactable
@@ -46,6 +47,8 @@ func _physics_process(delta: float) -> void:
     process_movement(delta)
     process_raycasts(delta)
     update_hud(delta)
+    
+    tray.add_player_velocity(current_velocity - last_velocity)
         
 
 func process_input(_delta: float) -> void:
@@ -81,10 +84,15 @@ func process_movement(delta: float) -> void:
         new_velocity = current_velocity.linear_interpolate(Vector3(), deceleration * delta)
     
     rotate_y(deg2rad(rotation_speed * -desired_rotation_direction * delta))
+    last_velocity = current_velocity 
     current_velocity = move_and_slide(new_velocity, Vector3.UP)
-
+    
 
 func process_raycasts(_delta: float) -> void:
+    if tray and !tray.is_in_kinematic_state():
+        nearest_interactable = null
+        return
+    
     nearest_interactable = interactable_detector.get_collider() as Interactable
 
 
@@ -93,3 +101,7 @@ func update_hud(_delta: float) -> void:
         hud.set_interaction_text(nearest_interactable.display_text)
     else:
         hud.set_interaction_text("")
+
+func UpdateMoney(amount: int):
+    money += amount
+    hud.set_label_money_value(String(money))

@@ -1,4 +1,4 @@
-extends Spatial
+extends Interactable
 
 class_name Customer
 
@@ -16,7 +16,11 @@ var Rnd = RandomNumberGenerator.new()
 var IdleThreshold # updated at each new Idle state
 var IdleElapsedTime = 0
 var customerManager = null
+var player = null
 
+func IsCustomerManagerObjectValid(customerManager):
+    return customerManager != null and customerManager.get_script() != null and customerManager.get_script().get_path() == "res://assets/prefabs/managers/CustomerManager.gd"
+     
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -28,8 +32,8 @@ func _ready():
     $sceneCharacter.SetCharacterType(CharacterType)
     $sceneCharacter.SetupMaterials()
     
-    customerManager = get_parent() as CustomerManager
-    if customerManager == null:
+    customerManager = get_parent()
+    if not IsCustomerManagerObjectValid(customerManager):
         print("Cannot create customer, parent node does not possess script 'CustomerManager'.")
         return
         
@@ -59,19 +63,24 @@ func IsIdle():
 func IsRequesting():
     return !Idle
 
-func ServeRequestedFood(food):
-    var foodObject = food  as Food
-    if foodObject == null:
+func ServeRequestedFood(food: Food):
+    if food == null:
         return
     elif Idle:
         return
-    elif not foodObject.food_name == RequestedFood.food_name:
+    elif not food.food_name == RequestedFood.food_name:
+        customerManager.OnCustomerFoodJustServed(food, -0.5)
         return
     
+    # Update money
+    customerManager.OnCustomerFoodJustServed(food, 1.0)
+        
     # Remove requested item and switch state
     RequestedFoodScene = null
+    RequestedFood.queue_free()
     RequestedFood = null
     
+    # Switch State
     SwitchState()
         
 func RequestNewFood(foodScene: PackedScene):
@@ -96,9 +105,20 @@ func SwitchState():
     # Notify CustomerManager
     customerManager.OnCustomerSwitchedState(self, Idle)
     
-    # Updte Idle
+    # Update Idle
     Idle = !Idle
     
     # Update idle threshold
     if !Idle:
         IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
+
+func interact(_instigator):
+    #tmp
+    var food = load("res://assets/prefabs/objects/food/apple.tscn").instance()
+    add_child(food)
+    var apple = find_node("Apple", true, false) as Food
+    
+    ServeRequestedFood(apple)
+    
+    #tmp
+    apple.queue_free()

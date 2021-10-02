@@ -13,8 +13,9 @@ func _ready():
         return
     
     # Setup links between managers and classes
-    customerManagers[0].HUD = players[0].hud
+    customerManagers[0].player = players[0]
     customerManagers[0].SetAvailableFoodSpawners(foodSpawners)
+
     
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

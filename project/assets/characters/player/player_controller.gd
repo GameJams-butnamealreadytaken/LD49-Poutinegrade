@@ -4,6 +4,10 @@ extends KinematicBody
 export(NodePath) var camera_path
 onready var camera := get_node(camera_path) as Camera
 
+export(NodePath) var tray_anchor_path
+onready var tray_anchor := get_node(tray_anchor_path) as Position3D
+
+export(PackedScene) var tray_scene: PackedScene
 
 export(float) var acceleration := 2.0
 export(float) var deceleration := 8.0
@@ -17,7 +21,8 @@ var current_velocity: Vector3
 
 
 func _ready() -> void:
-    pass
+    var tray := tray_scene.instance()
+    tray_anchor.add_child(tray)
 
 
 func _physics_process(delta: float) -> void:

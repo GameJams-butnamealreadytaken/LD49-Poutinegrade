@@ -52,6 +52,7 @@ func process_input(_delta: float) -> void:
     
     var camera_transform := camera.get_global_transform()
     
+    # Movement inputs
     if Input.is_action_pressed("move_forward"):
         desired_direction -= camera_transform.basis.z
     if Input.is_action_pressed("move_backward"):
@@ -60,6 +61,10 @@ func process_input(_delta: float) -> void:
         desired_rotation_direction = -1
     if Input.is_action_pressed("rotate_right"):
         desired_rotation_direction = 1
+        
+    # Interaction input
+    if Input.is_action_just_pressed("interact") and nearest_interactable != null:
+        nearest_interactable.interact(self)
         
 
 func process_movement(delta: float) -> void:            

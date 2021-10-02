@@ -2,4 +2,4 @@ extends Interactable
 
 
 func interact(instigator):
-    pass
+    print("plop")

@@ -12,13 +12,17 @@ var Valid = false
 export var IdleThresholdMin = 1
 export var IdleThresholdMax = 30
 var Rnd = RandomNumberGenerator.new()
-var IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax) # Is then updated at each new Idle state
+var IdleThreshold # updated at each new Idle state
 var IdleElapsedTime = 0
 var customerManager = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-        
+
+    # Random Idle threshold
+    Rnd.randomize()
+    IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
+    
     # Setup customer material
     $sceneCharacter.SetCharacterType(CharacterType)
     $sceneCharacter.SetupMaterials()
@@ -86,4 +90,4 @@ func SwitchState():
         IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
     
     # Notify CustomerManager
-    customerManager.OnCustomerSwitchedState(self, Idle)
+    customerManager.OnCustomerSwitchedState(self, !Idle)

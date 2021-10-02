@@ -1,5 +1,7 @@
 extends Node
 
+class_name CustomerManager
+
 # var
 var CustomersArray = []
 var CustomersStateArray = [[],[]] # Double array with [0] = idle / [1] = requesting
@@ -17,17 +19,21 @@ func IsCustomerObjectValid(customer):
         
 func RegisterCustomer(customer):
     if IsCustomerObjectValid(customer):
-        CustomersArray.append(customer)
-        CustomersStateArray[0].append(customer)
+        return
         
-        #print_debug("New customer: "+customer.to_string())
+    CustomersArray.append(customer)
+    CustomersStateArray[0].append(customer)
+    
+    #print_debug("New customer: "+customer.to_string())
 
 func UnregisterCustomer(customer):
     if IsCustomerObjectValid(customer):
-        var iFindIndex = CustomersArray.find(customer)
-        if iFindIndex != -1:
-            CustomersArray.remove(iFindIndex)
-            #print_debug("Removed customer: "+customer.to_string())
+        return
+        
+    var iFindIndex = CustomersArray.find(customer)
+    if iFindIndex != -1:
+        CustomersArray.remove(iFindIndex)
+        #print_debug("Removed customer: "+customer.to_string())
 
 func GetCustomersCount():
     return CustomersArray.count()
@@ -39,7 +45,7 @@ func GetCustomersIdleCount():
     return CustomersStateArray[0].count()
 
 func OnCustomerSwitchedState(customer, newState):
-    if not IsCustomerObjectValid(customer) :
+    if IsCustomerObjectValid(customer):
         return
     
     # Remove customer from current state array

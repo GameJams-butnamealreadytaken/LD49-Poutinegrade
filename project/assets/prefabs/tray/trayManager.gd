@@ -26,7 +26,6 @@ func _on_body_enter(body: Node):
         var object_id = food_list.find(body.get_owner())
         if object_id == -1:
             food_list.push_back(body.get_owner())
-            print("adding entering object")
 
 func add_food(food_object: PackedScene):
     var food_instance = food_object.instance()

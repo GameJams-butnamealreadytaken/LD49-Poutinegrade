@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=21 format=2]
+[gd_resource type="ShaderMaterial" load_steps=19 format=2]
 
 [sub_resource type="VisualShaderNodeColorConstant" id=1]
 constant = Color( 1, 0, 0, 1 )
@@ -11,8 +11,7 @@ size = Vector2( 395, 357 )
 expression = "//
 // Polar coordinates to filter according to theta
 fNewX = uv.y - 0.5;
-fNewY = uv.x - 1.0 + 0.5;
-r = sqrt(fNewX * fNewX + fNewY * fNewY);"
+fNewY = uv.x - 0.5;"
 
 [sub_resource type="VisualShaderNodeColorOp" id=4]
 operator = 3
@@ -30,7 +29,7 @@ float fHalfSize = 0.5;
 
 position = uv;
 alpha = 1.0;
-color_final = color_bg;
+color_final = color_fg;
 
 float fDistance = distance(uv.xy, vec2(0.5, 0.5));
 if (fDistance > fHalfSize)
@@ -39,19 +38,14 @@ if (fDistance > fHalfSize)
 }
 
 float fAngularTheta = time * 6.28 / total_time;
-if(thetaUV + 3.14 - fAngularTheta > 0.0)
+if (thetaUV + 3.14 - fAngularTheta > 0.0)
 {
-	color_final = color_fg;
-}"
+	color_final = color_bg;
+}
+"
 
 [sub_resource type="VisualShaderNodeInput" id=8]
 input_name = "uv"
-
-[sub_resource type="VisualShaderNodeInput" id=9]
-input_name = "time"
-
-[sub_resource type="VisualShaderNodeScalarConstant" id=10]
-constant = 10.0
 
 [sub_resource type="VisualShaderNodeColorConstant" id=11]
 constant = Color( 0, 1, 0.360784, 1 )
@@ -141,20 +135,17 @@ void fragment() {
 // Expression:12
 	float n_out12p0;
 	float n_out12p1;
-	float n_out12p2;
 	n_out12p0 = 0.0;
 	n_out12p1 = 0.0;
-	n_out12p2 = 0.0;
 	{
 		//
 		// Polar coordinates to filter according to theta
-		n_out12p1 = n_out5p0.y - 0.5;
-		n_out12p2 = n_out5p0.x - 1.0 + 0.5;
-		n_out12p0 = sqrt(n_out12p1 * n_out12p1 + n_out12p2 * n_out12p2);
+		n_out12p0 = n_out5p0.y - 0.5;
+		n_out12p1 = n_out5p0.x - 0.5;
 	}
 
 // ScalarOp:11
-	float n_out11p0 = atan(n_out12p2, n_out12p1);
+	float n_out11p0 = atan(n_out12p1, n_out12p0);
 
 // ScalarUniform:15
 	float n_out15p0 = elapsed_time;
@@ -175,7 +166,7 @@ void fragment() {
 		
 		n_out4p0 = n_out5p0;
 		n_out4p1 = 1.0;
-		n_out4p2 = n_out10p0;
+		n_out4p2 = n_out9p0;
 		
 		float fDistance = distance(n_out5p0.xy, vec2(0.5, 0.5));
 		if (fDistance > fHalfSize)
@@ -184,10 +175,11 @@ void fragment() {
 		}
 		
 		float fAngularTheta = n_out15p0 * 6.28 / n_out14p0;
-		if(n_out11p0 + 3.14 - fAngularTheta > 0.0)
+		if (n_out11p0 + 3.14 - fAngularTheta > 0.0)
 		{
-			n_out4p2 = n_out9p0;
+			n_out4p2 = n_out10p0;
 		}
+		
 	}
 
 // Output:0
@@ -201,7 +193,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -105.773, 23.5 )
+graph_offset = Vector2( -838.072, 300.306 )
 nodes/vertex/0/position = Vector2( 740, 120 )
 nodes/vertex/8/node = SubResource( 19 )
 nodes/vertex/8/position = Vector2( 340, 400 )
@@ -224,18 +216,18 @@ nodes/vertex/17/position = Vector2( -40, 200 )
 nodes/vertex/18/node = SubResource( 18 )
 nodes/vertex/18/position = Vector2( 220, 160 )
 nodes/vertex/connections = PoolIntArray( 8, 0, 0, 8, 11, 0, 16, 0, 12, 0, 17, 0, 10, 0, 15, 0, 17, 3, 18, 3, 16, 0, 18, 0, 16, 1, 18, 1, 16, 2, 18, 2, 18, 0, 15, 1, 15, 0, 8, 0 )
-nodes/fragment/0/position = Vector2( 140, 440 )
+nodes/fragment/0/position = Vector2( 400, 400 )
 nodes/fragment/4/node = SubResource( 7 )
 nodes/fragment/4/position = Vector2( -440, 400 )
 nodes/fragment/4/size = Vector2( 550, 771 )
-nodes/fragment/4/input_ports = "0,1,uv;1,1,color_fg;2,1,color_bg;3,0,r;4,0,thetaUV;5,0,time;6,0,total_time;"
+nodes/fragment/4/input_ports = "0,1,uv;1,1,color_fg;2,1,color_bg;3,0,thetaUV;4,0,time;5,0,total_time;"
 nodes/fragment/4/output_ports = "0,1,position;1,0,alpha;2,1,color_final;"
 nodes/fragment/4/expression = "float fPi = 3.141593;
 float fHalfSize = 0.5;
 
 position = uv;
 alpha = 1.0;
-color_final = color_bg;
+color_final = color_fg;
 
 float fDistance = distance(uv.xy, vec2(0.5, 0.5));
 if (fDistance > fHalfSize)
@@ -244,39 +236,35 @@ if (fDistance > fHalfSize)
 }
 
 float fAngularTheta = time * 6.28 / total_time;
-if(thetaUV + 3.14 - fAngularTheta > 0.0)
+if (thetaUV + 3.14 - fAngularTheta > 0.0)
 {
-	color_final = color_fg;
-}"
+	color_final = color_bg;
+}
+"
 nodes/fragment/5/node = SubResource( 8 )
-nodes/fragment/5/position = Vector2( -700, 420 )
-nodes/fragment/6/node = SubResource( 9 )
-nodes/fragment/6/position = Vector2( -720, 520 )
-nodes/fragment/7/node = SubResource( 10 )
-nodes/fragment/7/position = Vector2( -900, 580 )
+nodes/fragment/5/position = Vector2( -1100, 400 )
 nodes/fragment/9/node = SubResource( 11 )
-nodes/fragment/9/position = Vector2( -880, 700 )
+nodes/fragment/9/position = Vector2( -660, 500 )
 nodes/fragment/10/node = SubResource( 1 )
-nodes/fragment/10/position = Vector2( -860, 800 )
+nodes/fragment/10/position = Vector2( -800, 560 )
 nodes/fragment/11/node = SubResource( 2 )
-nodes/fragment/11/position = Vector2( -400, 1180 )
+nodes/fragment/11/position = Vector2( -900, 680 )
 nodes/fragment/12/node = SubResource( 3 )
-nodes/fragment/12/position = Vector2( -1000, 900 )
+nodes/fragment/12/position = Vector2( -1560, 680 )
 nodes/fragment/12/size = Vector2( 395, 357 )
 nodes/fragment/12/input_ports = "0,1,uv;"
-nodes/fragment/12/output_ports = "0,0,r;1,0,fNewX;2,0,fNewY;"
+nodes/fragment/12/output_ports = "0,0,fNewX;1,0,fNewY;"
 nodes/fragment/12/expression = "//
 // Polar coordinates to filter according to theta
 fNewX = uv.y - 0.5;
-fNewY = uv.x - 1.0 + 0.5;
-r = sqrt(fNewX * fNewX + fNewY * fNewY);"
+fNewY = uv.x - 0.5;"
 nodes/fragment/13/node = SubResource( 4 )
-nodes/fragment/13/position = Vector2( 200, 300 )
+nodes/fragment/13/position = Vector2( 160, 600 )
 nodes/fragment/14/node = SubResource( 5 )
-nodes/fragment/14/position = Vector2( -660, 700 )
+nodes/fragment/14/position = Vector2( -660, 860 )
 nodes/fragment/15/node = SubResource( 6 )
-nodes/fragment/15/position = Vector2( -660, 600 )
-nodes/fragment/connections = PoolIntArray( 5, 0, 4, 0, 4, 1, 0, 1, 4, 2, 0, 0, 10, 0, 4, 2, 9, 0, 4, 1, 5, 0, 12, 0, 12, 0, 4, 3, 11, 0, 4, 4, 4, 2, 13, 0, 12, 2, 11, 0, 12, 1, 11, 1, 14, 0, 4, 6, 15, 0, 4, 5 )
+nodes/fragment/15/position = Vector2( -700, 780 )
+nodes/fragment/connections = PoolIntArray( 5, 0, 4, 0, 4, 1, 0, 1, 4, 2, 0, 0, 10, 0, 4, 2, 9, 0, 4, 1, 5, 0, 12, 0, 4, 2, 13, 0, 11, 0, 4, 3, 14, 0, 4, 5, 15, 0, 4, 4, 12, 0, 11, 1, 12, 1, 11, 0 )
 
 [resource]
 shader = SubResource( 20 )

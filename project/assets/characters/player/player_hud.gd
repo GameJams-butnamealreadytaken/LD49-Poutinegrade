@@ -36,5 +36,5 @@ func show_game_finished() -> void:
     $TabContainer.current_tab = 1
 
 func _on_ButtonReturnMainMenu_pressed():
-    # Return to main menu !
-    pass
+    $TabContainer.current_tab = 0
+    get_tree().root.get_child(1).stop_game()

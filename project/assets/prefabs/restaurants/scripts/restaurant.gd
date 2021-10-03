@@ -2,7 +2,7 @@ extends Spatial
 
 export(int) var game_duration_seconds = 300
 var remaining_time = 0
-var player = null
+var player
 
 func _ready():
     var foodSpawners = get_tree().get_nodes_in_group("food_spawner")
@@ -30,11 +30,17 @@ func _ready():
 
     remaining_time = game_duration_seconds
     
+func reset():
+    remaining_time = game_duration_seconds
+    
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+    if not Game.started:
+        reset()
+        return
+        
     if remaining_time > 0:
         remaining_time = max(remaining_time - delta, 0)
         if remaining_time <= 0:
             player.game_finished()
         player.hud.set_label_time_value(String(remaining_time))
-    

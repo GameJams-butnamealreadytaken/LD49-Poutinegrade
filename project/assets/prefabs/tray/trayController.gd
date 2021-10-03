@@ -22,6 +22,9 @@ func _ready():
     parent = get_parent()    
 
 func _process(delta):
+    if not Game.started:
+        return
+        
     rot_angle_x = 0.0
     rot_angle_z = 0.0
     

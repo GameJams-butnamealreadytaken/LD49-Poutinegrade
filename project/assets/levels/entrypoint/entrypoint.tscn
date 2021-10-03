@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/levels/entrypoint/entrypoint.gd" type="Script" id=1]
+[ext_resource path="res://assets/levels/main_menu/main_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/levels/restaurant_01/restaurant_01.tscn" type="PackedScene" id=3]
+
+[node name="EntryPoint" type="Node"]
+script = ExtResource( 1 )
+main_menu_scene = ExtResource( 2 )
+restaurant_scene = ExtResource( 3 )

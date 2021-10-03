@@ -69,8 +69,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Poutinegrade"
-run/main_scene="res://assets/levels/main_menu/main_menu.tscn"
+run/main_scene="res://assets/levels/entrypoint/entrypoint.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Game="*res://assets/prefabs/game/game.gd"
 
 [input]
 

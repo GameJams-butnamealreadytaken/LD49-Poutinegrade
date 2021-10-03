@@ -16,6 +16,12 @@ func _ready():
     
     raycast_list = get_tree().get_nodes_in_group("tray_raycast")
 
+func reset():
+    var count = food_list.size()
+    for i in range(0, count-1):
+        food_list[i].queue_free()
+    food_list.clear()
+
 func _on_body_exit(body: Node) -> void:
     var object_id = food_list.find(body.get_owner())
     if object_id != -1:

@@ -13,6 +13,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+    if not Game.started:
+        return
+        
     CameraToLookAt = get_parent().get_parent().find_node("Camera")
     #if not CameraToLookAt == null:
       #  var pos = CameraToLookAt.transform.origin

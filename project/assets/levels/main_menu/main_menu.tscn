@@ -23,9 +23,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="ButtonRun" type="Button" parent="VBoxContainer"]
 margin_right = 250.0
 margin_bottom = 20.0
+text = "Serve !"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 250.0
+margin_bottom = 27.0
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 31.0
+margin_right = 250.0
+margin_bottom = 51.0
 text = "Quit"
 
+[connection signal="pressed" from="VBoxContainer/ButtonRun" to="." method="_on_ButtonRun_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

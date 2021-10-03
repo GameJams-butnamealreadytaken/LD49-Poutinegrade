@@ -16,8 +16,11 @@ func _ready():
     pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#    pass
+func _process(delta):
+    if not Game.started:
+        CustomersStateArray[0].clear()
+        CustomersStateArray[1].clear()
+        CustomersStateArray[0].append_array(CustomersArray)
 
 func IsCustomerObjectValid(customer):
     return customer != null and customer.get_script().get_path() == "res://assets/prefabs/characters/scripts/Customer.gd"

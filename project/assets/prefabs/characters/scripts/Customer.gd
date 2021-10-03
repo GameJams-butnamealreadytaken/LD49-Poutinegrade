@@ -55,8 +55,16 @@ func _ready():
     $spriteTimer.set_material_override(mat)
     $spriteTimer.set_visible(false)
 
+func reset():
+    Valid = false
+    ElapsedTime = 0
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+    if not Game.started:
+        reset()
+        return
+        
     if !Valid:
         return
         

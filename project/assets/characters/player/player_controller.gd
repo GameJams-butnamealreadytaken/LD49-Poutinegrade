@@ -48,8 +48,14 @@ func _ready() -> void:
     hud = hud_scene.instance() as PlayerHUD
     add_child(hud)
 
+func reset():
+    game_finished = false
+    money = 0
 
 func _physics_process(delta: float) -> void:  
+    if not Game.started:
+        return
+        
     if game_finished:
         return
          

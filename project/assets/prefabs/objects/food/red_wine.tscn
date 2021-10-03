@@ -14,6 +14,8 @@ food_name = "Red Wine"
 food_reward = 20.0
 
 [node name="RigidBody" type="RigidBody" parent="."]
+linear_damp = 1.0
+angular_damp = 1.0
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33811, 0 )

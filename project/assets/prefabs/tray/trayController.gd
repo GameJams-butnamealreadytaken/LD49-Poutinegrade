@@ -2,6 +2,8 @@ extends RigidBody
 
 class_name TrayController
 
+signal onTrayBail
+
 export(float) var rotation_speed = 1.0
 export(float) var rotation_max = 30.0
 
@@ -32,6 +34,7 @@ func _process(delta):
             parent.remove_child(self)
             root.add_child(self)
             transform = transfo
+            emit_signal("onTrayBail")
     
         if Input.is_action_pressed("tray_front"):
             rot_angle_x = -rotation_speed * delta

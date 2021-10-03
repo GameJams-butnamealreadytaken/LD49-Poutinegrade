@@ -12,6 +12,8 @@ food_name = "Fries"
 food_reward = 11.0
 
 [node name="RigidBody" type="RigidBody" parent="."]
+linear_damp = 1.0
+angular_damp = 1.0
 
 [node name="fries" parent="RigidBody" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.200216, 0 )

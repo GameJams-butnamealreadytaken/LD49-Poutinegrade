@@ -52,16 +52,20 @@ func _process(delta):
                 rot_angle_z = 0.0
          
         if limit_rotation_counter > 1.0 and (abs(rotation_x) > rotation_max or abs(rotation_z) > rotation_max):
-            mode = MODE_RIGID
-            var transfo = global_transform
-            var root = get_tree().get_root()
-            parent.remove_child(self)
-            root.add_child(self)
-            transform = transfo
-            emit_signal("onTrayBail")
+            trigger_bail()
             
     if Input.is_action_just_pressed("tray_reset"):
         resetTray()
+    
+func trigger_bail() -> void:
+    if mode == MODE_KINEMATIC:
+        mode = MODE_RIGID
+        var transfo = global_transform
+        var root = get_tree().get_root()
+        parent.remove_child(self)
+        root.add_child(self)
+        transform = transfo
+        emit_signal("onTrayBail")
     
 func resetTray():
     get_parent().remove_child(self)
@@ -78,6 +82,9 @@ func _physics_process(_delta):
         rotate_z(rot_angle_z)
 
 func on_player_moved(direction: int, rotation: int, delta: float) -> void:
+    if mode != MODE_KINEMATIC:
+        return
+        
     var rotation_x = abs(rad2deg(get_transform().basis.get_euler().x))
     var rotation_z = abs(rad2deg(get_transform().basis.get_euler().z))
     

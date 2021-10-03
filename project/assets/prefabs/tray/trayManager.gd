@@ -79,7 +79,10 @@ func apply_player_rotation(rotation: float, player_location: Vector3) -> void:
 
 func on_player_moved(direction: int, rotation: int, delta: float) -> void:
     tray_controller.on_player_moved(direction, rotation, delta)
-    
+
+func trigger_bail() -> void:
+    tray_controller.trigger_bail()
+
 func get_food_object(food_name: String) -> Food:
     for i in range(0, food_list.size()):
         var food = food_list[i]

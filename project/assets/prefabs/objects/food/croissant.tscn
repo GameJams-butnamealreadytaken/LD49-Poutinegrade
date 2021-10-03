@@ -32,7 +32,7 @@ food_reward = 2.0
 [node name="RigidBody" type="RigidBody" parent="."]
 collision_layer = 5
 linear_damp = 1.0
-angular_damp = 1.0
+angular_damp = 10.0
 
 [node name="croissant" type="MeshInstance" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0737583, 0 )

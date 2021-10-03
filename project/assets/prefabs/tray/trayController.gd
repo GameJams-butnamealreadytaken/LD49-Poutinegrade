@@ -78,6 +78,9 @@ func _physics_process(_delta):
         rotate_z(rot_angle_z)
 
 func on_player_moved(direction: int, rotation: int, delta: float) -> void:
+    if mode != MODE_KINEMATIC:
+        return
+        
     var rotation_x = abs(rad2deg(get_transform().basis.get_euler().x))
     var rotation_z = abs(rad2deg(get_transform().basis.get_euler().z))
     

@@ -26,7 +26,7 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15748, 0 )
 
 [node name="TrayAnchor" type="Position3D" parent="Camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828588, -0.116781, -2.10853 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828588, -0.529636, -2.10853 )
 
 [node name="InteractableDetector" type="RayCast" parent="Camera"]
 enabled = true

@@ -1,19 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/prefabs/tray/trayController.gd" type="Script" id=1]
 [ext_resource path="res://assets/prefabs/tray/trayManager.gd" type="Script" id=2]
 [ext_resource path="res://assets/models/foodkit/cuttingBoard.fbx" type="PackedScene" id=3]
+[ext_resource path="res://assets/prefabs/physics/RayCastNeighbours.gd" type="Script" id=4]
 
 [sub_resource type="BoxShape" id=1]
 
-[sub_resource type="PhysicsMaterial" id=4]
+[sub_resource type="PhysicsMaterial" id=2]
 friction = 5.0
 rough = true
 absorbent = true
 
-[sub_resource type="BoxShape" id=2]
-
 [sub_resource type="BoxShape" id=3]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1, 1.72445, 1 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
@@ -34,34 +36,406 @@ shape = SubResource( 1 )
 
 [node name="RigidBody_tray" type="RigidBody" parent="."]
 mode = 3
-physics_material_override = SubResource( 4 )
+physics_material_override = SubResource( 2 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody_tray"]
 transform = Transform( 1.07, 0, 0, 0, 0.052, 0, 0, 0, 0.754, 0, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="cuttingBoard" parent="RigidBody_tray" instance=ExtResource( 3 )]
 transform = Transform( -1.1365e-07, 0, 2.6, 0, 2.6, 0, -2.6, 0, -1.1365e-07, 0, -0.0527236, 0 )
+
+[node name="RayCast" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.191624, 0.212328, -0.307149 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast2"), NodePath("../RayCast3"), NodePath("../RayCast10") ]
+
+[node name="RayCast2" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.191624, 0.212328, -0.230226 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast"), NodePath("../RayCast3"), NodePath("../RayCast11"), NodePath("../RayCast9"), NodePath("../RayCast12") ]
+
+[node name="RayCast3" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.191624, 0.212328, -0.153303 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast2"), NodePath("../RayCast4"), NodePath("../RayCast11"), NodePath("../RayCast12"), NodePath("../RayCast13") ]
+
+[node name="RayCast4" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.191624, 0.212328, -0.0763795 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast3"), NodePath("../RayCast5"), NodePath("../RayCast12"), NodePath("../RayCast13"), NodePath("../RayCast14") ]
+
+[node name="RayCast5" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.191624, 0.212328, 0.000543568 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast4"), NodePath("../RayCast6"), NodePath("../RayCast13"), NodePath("../RayCast14"), NodePath("../RayCast15") ]
+
+[node name="RayCast6" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.191624, 0.212328, 0.0774666 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast5"), NodePath("../RayCast7"), NodePath("../RayCast14"), NodePath("../RayCast15"), NodePath("../RayCast16") ]
+
+[node name="RayCast7" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.191624, 0.212328, 0.15439 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast6"), NodePath("../RayCast8"), NodePath("../RayCast15"), NodePath("../RayCast16"), NodePath("../RayCast17") ]
+
+[node name="RayCast8" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.191624, 0.212328, 0.231313 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast7"), NodePath("../RayCast9"), NodePath("../RayCast16"), NodePath("../RayCast17"), NodePath("../RayCast18") ]
+
+[node name="RayCast9" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.191624, 0.212328, 0.308236 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast8"), NodePath("../RayCast17"), NodePath("../RayCast18") ]
+
+[node name="RayCast10" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.0762395, 0.212328, -0.307149 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast"), NodePath("../RayCast2"), NodePath("../RayCast11"), NodePath("../RayCast19"), NodePath("../RayCast20") ]
+
+[node name="RayCast11" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.0762395, 0.212328, -0.230226 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast"), NodePath("../RayCast2"), NodePath("../RayCast3"), NodePath("../RayCast10"), NodePath("../RayCast12"), NodePath("../RayCast19"), NodePath("../RayCast20"), NodePath("../RayCast21") ]
+
+[node name="RayCast12" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.0762395, 0.212328, -0.153303 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast2"), NodePath("../RayCast3"), NodePath("../RayCast4"), NodePath("../RayCast11"), NodePath("../RayCast13"), NodePath("../RayCast20"), NodePath("../RayCast21"), NodePath("../RayCast22") ]
+
+[node name="RayCast13" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.0762394, 0.212328, -0.0763795 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast3"), NodePath("../RayCast4"), NodePath("../RayCast5"), NodePath("../RayCast12"), NodePath("../RayCast14"), NodePath("../RayCast21"), NodePath("../RayCast22"), NodePath("../RayCast23") ]
+
+[node name="RayCast14" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.0762395, 0.212328, 0.000543563 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast4"), NodePath("../RayCast5"), NodePath("../RayCast6"), NodePath("../RayCast13"), NodePath("../RayCast15"), NodePath("../RayCast22"), NodePath("../RayCast23"), NodePath("../RayCast24") ]
+
+[node name="RayCast15" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.0762395, 0.212328, 0.0774666 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast5"), NodePath("../RayCast6"), NodePath("../RayCast7"), NodePath("../RayCast14"), NodePath("../RayCast16"), NodePath("../RayCast23"), NodePath("../RayCast24"), NodePath("../RayCast25") ]
+
+[node name="RayCast16" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.0762395, 0.212328, 0.15439 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast6"), NodePath("../RayCast7"), NodePath("../RayCast8"), NodePath("../RayCast15"), NodePath("../RayCast17"), NodePath("../RayCast24"), NodePath("../RayCast25"), NodePath("../RayCast26") ]
+
+[node name="RayCast17" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.0762395, 0.212328, 0.231313 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast7"), NodePath("../RayCast8"), NodePath("../RayCast9"), NodePath("../RayCast16"), NodePath("../RayCast18"), NodePath("../RayCast25"), NodePath("../RayCast26"), NodePath("../RayCast27") ]
+
+[node name="RayCast18" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.0762395, 0.212328, 0.308236 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast8"), NodePath("../RayCast9"), NodePath("../RayCast17"), NodePath("../RayCast26"), NodePath("../RayCast27") ]
+
+[node name="RayCast19" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.0391451, 0.212328, -0.307149 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast11"), NodePath("../RayCast10"), NodePath("../RayCast20"), NodePath("../RayCast28"), NodePath("../RayCast29") ]
+
+[node name="RayCast20" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.0391451, 0.212328, -0.230226 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast10"), NodePath("../RayCast11"), NodePath("../RayCast12"), NodePath("../RayCast19"), NodePath("../RayCast21"), NodePath("../RayCast28"), NodePath("../RayCast29"), NodePath("../RayCast30") ]
+
+[node name="RayCast21" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.0391452, 0.212328, -0.153303 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast11"), NodePath("../RayCast12"), NodePath("../RayCast13"), NodePath("../RayCast20"), NodePath("../RayCast22"), NodePath("../RayCast29"), NodePath("../RayCast30"), NodePath("../RayCast31") ]
+
+[node name="RayCast22" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.0391452, 0.212328, -0.0763795 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast12"), NodePath("../RayCast13"), NodePath("../RayCast14"), NodePath("../RayCast21"), NodePath("../RayCast23"), NodePath("../RayCast30"), NodePath("../RayCast31"), NodePath("../RayCast32") ]
+
+[node name="RayCast23" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.0391452, 0.212328, 0.000543558 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast13"), NodePath("../RayCast14"), NodePath("../RayCast15"), NodePath("../RayCast22"), NodePath("../RayCast24"), NodePath("../RayCast31"), NodePath("../RayCast32"), NodePath("../RayCast33") ]
+
+[node name="RayCast24" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.0391452, 0.212328, 0.0774666 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast14"), NodePath("../RayCast15"), NodePath("../RayCast16"), NodePath("../RayCast23"), NodePath("../RayCast25"), NodePath("../RayCast32"), NodePath("../RayCast33"), NodePath("../RayCast34") ]
+
+[node name="RayCast25" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.0391451, 0.212328, 0.15439 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast15"), NodePath("../RayCast16"), NodePath("../RayCast17"), NodePath("../RayCast24"), NodePath("../RayCast26"), NodePath("../RayCast33"), NodePath("../RayCast34"), NodePath("../RayCast35") ]
+
+[node name="RayCast26" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.0391451, 0.212328, 0.231313 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast16"), NodePath("../RayCast17"), NodePath("../RayCast18"), NodePath("../RayCast25"), NodePath("../RayCast27"), NodePath("../RayCast34"), NodePath("../RayCast35"), NodePath("../RayCast36") ]
+
+[node name="RayCast27" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.0391452, 0.212328, 0.308236 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast17"), NodePath("../RayCast18"), NodePath("../RayCast26"), NodePath("../RayCast35"), NodePath("../RayCast36") ]
+
+[node name="RayCast28" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.15453, 0.212328, -0.307149 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast19"), NodePath("../RayCast20"), NodePath("../RayCast29") ]
+
+[node name="RayCast29" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.15453, 0.212328, -0.230226 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast19"), NodePath("../RayCast20"), NodePath("../RayCast28"), NodePath("../RayCast21"), NodePath("../RayCast30") ]
+
+[node name="RayCast30" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.15453, 0.212328, -0.153303 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast20"), NodePath("../RayCast21"), NodePath("../RayCast22"), NodePath("../RayCast29"), NodePath("../RayCast31") ]
+
+[node name="RayCast31" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.15453, 0.212328, -0.0763795 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast21"), NodePath("../RayCast22"), NodePath("../RayCast23"), NodePath("../RayCast30"), NodePath("../RayCast32") ]
+
+[node name="RayCast32" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.15453, 0.212328, 0.000543553 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast22"), NodePath("../RayCast23"), NodePath("../RayCast24"), NodePath("../RayCast31"), NodePath("../RayCast33") ]
+
+[node name="RayCast33" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.15453, 0.212328, 0.0774666 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast23"), NodePath("../RayCast24"), NodePath("../RayCast25"), NodePath("../RayCast32"), NodePath("../RayCast34") ]
+
+[node name="RayCast34" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.15453, 0.212328, 0.15439 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast24"), NodePath("../RayCast25"), NodePath("../RayCast26"), NodePath("../RayCast33"), NodePath("../RayCast35") ]
+
+[node name="RayCast35" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.15453, 0.212328, 0.231313 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast25"), NodePath("../RayCast26"), NodePath("../RayCast27"), NodePath("../RayCast34"), NodePath("../RayCast36") ]
+
+[node name="RayCast36" type="RayCast" parent="RigidBody_tray/cuttingBoard" groups=[
+"tray_raycast",
+]]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.15453, 0.212328, 0.308236 )
+enabled = true
+cast_to = Vector3( 0, -0.3, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+neighbours = [ NodePath("../RayCast26"), NodePath("../RayCast27"), NodePath("../RayCast35") ]
 
 [node name="FoodLimit" type="Area" parent="RigidBody_tray"]
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody_tray/FoodLimit"]
 transform = Transform( 1.2, 0, 0, 0, 0.17, 0, 0, 0, 0.85, 0, 0.192868, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="RigidBody_tray"]
-transform = Transform( 0.035, 0, 0, 0, 0.051, 0, 0, 0, 0.757, 1.0303, 0.101607, 0 )
-shape = SubResource( 3 )
+transform = Transform( 0.035, 0, 0, 0, 0.0591844, 0, 0, 0, 0.757, 1.03091, 0.138828, 0 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="RigidBody_tray"]
-transform = Transform( 0.035, 0, 0, 0, 0.051, 0, 0, 0, 0.757, -1.03355, 0.101607, 0 )
-shape = SubResource( 3 )
+transform = Transform( 0.035, 0, 0, 0, 0.0884775, 0, 0, 0, 0.757, -1.03355, 0.139917, 0 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="RigidBody_tray"]
-transform = Transform( 1.068, 0, 0, 0, 0.051, 0, 0, 0, 0.035, 0, 0.103192, -0.722347 )
-shape = SubResource( 3 )
+transform = Transform( 1.068, 0, 0, 0, 0.051, 0, 0, 0, 0.035, 0, 0.138756, -0.722347 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="RigidBody_tray"]
-transform = Transform( 1.068, 0, 0, 0, 0.051, 0, 0, 0, 0.035, 0, 0.103192, 0.722347 )
-shape = SubResource( 3 )
+transform = Transform( 1.068, 0, 0, 0, 0.051, 0, 0, 0, 0.035, 0, 0.138666, 0.722347 )
+shape = SubResource( 4 )
+
+[node name="CSGBox3" type="CSGBox" parent="RigidBody_tray"]
+transform = Transform( 0.0340381, 0, 0, 0, 0.0878007, 0, 0, 0, 0.747163, -1.03212, 0.139915, -0.000723004 )
+
+[node name="CSGBox2" type="CSGBox" parent="RigidBody_tray"]
+transform = Transform( 0.0340381, 0, 0, 0, 0.0878007, 0, 0, 0, 0.747163, 1.03247, 0.139411, -0.000723004 )
+
+[node name="CSGBox5" type="CSGBox" parent="RigidBody_tray"]
+transform = Transform( 1.04842, 0, 0, 0, 0.088, 0, 0, 0, 0.034, -0.002, 0.138731, 0.722591 )
+
+[node name="CSGBox4" type="CSGBox" parent="RigidBody_tray"]
+transform = Transform( 1.04842, 0, 0, 0, 0.088, 0, 0, 0, 0.034, -0.002, 0.138679, -0.722 )

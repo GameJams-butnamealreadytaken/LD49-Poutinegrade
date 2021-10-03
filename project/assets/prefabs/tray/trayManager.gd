@@ -7,11 +7,14 @@ export(NodePath) var tray_controller_path
 onready var tray_controller := get_node(tray_controller_path) as TrayController
 
 var food_list = []
+var raycast_list = []
 
 func _ready():
     var _error = $RigidBody_tray/FoodLimit.connect("body_exited", self, "_on_body_exit")
     _error = $RigidBody_tray/FoodLimit.connect("body_entered", self, "_on_body_enter")
     _error = tray_controller.connect("onTrayBail", self, "on_tray_bail")
+    
+    raycast_list = get_tree().get_nodes_in_group("tray_raycast")
 
 func _on_body_exit(body: Node) -> void:
     var object_id = food_list.find(body.get_owner())
@@ -27,8 +30,36 @@ func _on_body_enter(body: Node) -> void:
 
 func compute_food_position_on_tray() -> Transform: 
     var localUpwardOffset = Vector3(0.0, 0.3, 0.0)
+    var localHorizontalOffset = Vector3(0.0, 0.0, 0.0)
     
-    var localOffset = localUpwardOffset
+    # Find horizontal offset according to raycast list
+    var raycast_list_count = raycast_list.size()
+    var bFoundSpot = false
+    var correct_raycast = null
+    var raycast_list_shuffled = raycast_list.duplicate()
+    raycast_list_shuffled.shuffle()
+    for raycast_list_index in range(0, raycast_list_count-1):
+        var raycast_nb = raycast_list_shuffled[raycast_list_index]
+        var neighbours_count = raycast_nb.neighbours.size()
+        var bColliding = false
+        for neighbour_index in range(0, neighbours_count-1):
+            var raycast_nodepath = raycast_nb.neighbours[neighbour_index]
+            var raycast = raycast_nb.get_node(raycast_nodepath) as RayCast
+            var bRaycastColliding = raycast.is_colliding()
+            bColliding = bColliding or bRaycastColliding
+            if bColliding :
+                break
+        if not bColliding:
+            correct_raycast = raycast_nb
+            bFoundSpot = true
+            break
+    if bFoundSpot:
+        localHorizontalOffset = global_transform.inverse().xform(correct_raycast.global_transform.origin)    
+    
+    # Merge offsets
+    var localOffset = localUpwardOffset + localHorizontalOffset
+    
+    # Transform offset in global transform to return
     var newTransform = $RigidBody_tray.global_transform.translated(localOffset)
     return newTransform
 

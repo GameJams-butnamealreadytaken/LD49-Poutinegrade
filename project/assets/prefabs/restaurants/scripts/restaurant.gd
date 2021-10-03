@@ -3,6 +3,7 @@ extends Spatial
 export(int) var game_duration_seconds = 300
 var remaining_time = 0
 var player
+var customerManager
 
 func _ready():
     var foodSpawners = get_tree().get_nodes_in_group("food_spawner")
@@ -21,8 +22,9 @@ func _ready():
     
     # Setup links between managers and classes
     player = players[0]
-    customerManagers[0].player = player
-    customerManagers[0].SetAvailableFoodSpawners(foodSpawners)
+    customerManager = customerManagers[0]
+    customerManager.player = player
+    customerManager.SetAvailableFoodSpawners(foodSpawners)
     
     var billboardSize = billboards.size()
     for billboardIndex in range(0, billboardSize-1):

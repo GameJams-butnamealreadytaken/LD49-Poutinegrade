@@ -93,3 +93,8 @@ func OnCustomerFoodJustServed(requestedFood, multiplier: float):
     
 func SetAvailableFoodSpawners(foodSpawners):
     AvailableFoodSpawners = foodSpawners
+
+func ValidateCustomers():
+    var count = CustomersArray.size()
+    for i in range(0, count-1):
+        CustomersArray[i].Valid = true

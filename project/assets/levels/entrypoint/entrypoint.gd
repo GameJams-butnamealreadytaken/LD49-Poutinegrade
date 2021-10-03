@@ -40,6 +40,7 @@ func start_game():
         get_tree().root.find_node("Camera", true, false).make_current()
         restaurant.player.global_transform = initialPlayerTransform
         restaurant.player.last_velocity = Vector3(0.0, 0.0, 0.0)
+        restaurant.customerManager.ValidateCustomers()
         
         
 func stop_game():

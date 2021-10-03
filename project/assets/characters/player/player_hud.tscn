@@ -10,7 +10,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-interaction_text_path = NodePath("TabContainer/game/InteractionText")
+interaction_text_path = NodePath("TabContainer/game/VBoxContainer/InteractionText")
 label_clients_requesting_value_path = NodePath("TabContainer/game/Container1/HBoxContainer2/LabelClientsRequestingValue")
 label_money_value_path = NodePath("TabContainer/game/Container2/LabelMoneyValue")
 label_time_value_path = NodePath("TabContainer/game/Container1/HBoxContainer/LabelTimeValue")
@@ -33,17 +33,9 @@ margin_top = 8.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="InteractionText" type="RichTextLabel" parent="TabContainer/game"]
-margin_right = 1016.0
-bbcode_enabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Container1" type="HBoxContainer" parent="TabContainer/game"]
-margin_top = 4.0
 margin_right = 1016.0
-margin_bottom = 18.0
+margin_bottom = 14.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -83,9 +75,9 @@ margin_bottom = 14.0
 text = "0"
 
 [node name="Container2" type="HBoxContainer" parent="TabContainer/game"]
-margin_top = 22.0
+margin_top = 18.0
 margin_right = 1016.0
-margin_bottom = 36.0
+margin_bottom = 32.0
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,14 +96,34 @@ margin_bottom = 14.0
 text = "0"
 
 [node name="ContainerTime" type="HBoxContainer" parent="TabContainer/game"]
+margin_top = 36.0
+margin_right = 1016.0
+margin_bottom = 36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/game"]
 margin_top = 40.0
 margin_right = 1016.0
-margin_bottom = 40.0
+margin_bottom = 588.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InteractionText" type="RichTextLabel" parent="TabContainer/game/VBoxContainer"]
+margin_right = 1016.0
+margin_bottom = 548.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="game_finished" type="VBoxContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
@@ -56,6 +56,7 @@
 [ext_resource path="res://assets/sounds/ambient_restaurant.ogg" type="AudioStream" id=54]
 [ext_resource path="res://assets/sounds/ambient_kitchen.ogg" type="AudioStream" id=55]
 [ext_resource path="res://assets/sounds/ambient_music.ogg" type="AudioStream" id=56]
+[ext_resource path="res://assets/prefabs/characters/character.tscn" type="PackedScene" id=57]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -29.8679, -23.267, -30.679, 59.7358, 46.534, 61.358 )
@@ -415,6 +416,14 @@ transform = Transform( -0.131147, -0.0211075, 0.991138, 0.00748845, -0.999766, -
 
 [node name="Bread2" parent="restaurant/kitchen/CuttingBoard" instance=ExtResource( 42 )]
 transform = Transform( 0.0211169, 2.38419e-06, 0.999777, 0.999777, -4.37016e-07, -0.0211169, 4.00469e-08, 10, -1.78814e-07, 7.43866e-05, 0.1201, -0.365826 )
+
+[node name="sceneCharacter" parent="restaurant/kitchen" instance=ExtResource( 57 )]
+transform = Transform( 0.780921, 0, -0.62463, 0, 1, 0, 0.62463, 0, 0.780921, 19.2972, 0, 11.2299 )
+CharacterType = "Man"
+
+[node name="sceneCharacter2" parent="restaurant/kitchen" instance=ExtResource( 57 )]
+transform = Transform( -0.132914, 0, -0.991128, 0, 1, 0, 0.991128, 0, -0.132914, 13.2246, 0, 19.9015 )
+CharacterType = "ManAlternative"
 
 [node name="tables" type="Spatial" parent="restaurant"]
 

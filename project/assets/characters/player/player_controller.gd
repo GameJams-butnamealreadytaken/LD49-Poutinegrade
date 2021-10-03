@@ -135,6 +135,6 @@ func UpdateMoney(amount: int):
     money += amount
     hud.set_label_money_value(String(money))
 
-func game_finished():
+func on_game_finished():
     game_finished = true
     hud.show_game_finished()

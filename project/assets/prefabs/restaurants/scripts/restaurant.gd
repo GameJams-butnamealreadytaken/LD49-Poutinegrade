@@ -44,5 +44,5 @@ func _process(delta):
     if remaining_time > 0:
         remaining_time = max(remaining_time - delta, 0)
         if remaining_time <= 0:
-            player.game_finished()
+            player.on_game_finished()
         player.hud.set_label_time_value(String(remaining_time))

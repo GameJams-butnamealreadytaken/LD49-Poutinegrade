@@ -267,6 +267,7 @@ nodes/fragment/15/position = Vector2( -700, 780 )
 nodes/fragment/connections = PoolIntArray( 5, 0, 4, 0, 4, 1, 0, 1, 4, 2, 0, 0, 10, 0, 4, 2, 9, 0, 4, 1, 5, 0, 12, 0, 4, 2, 13, 0, 11, 0, 4, 3, 14, 0, 4, 5, 15, 0, 4, 4, 12, 0, 11, 1, 12, 1, 11, 0 )
 
 [resource]
+resource_local_to_scene = true
 shader = SubResource( 20 )
 shader_param/elapsed_time = null
 shader_param/total_time = null

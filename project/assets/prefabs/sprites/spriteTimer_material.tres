@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=13 format=2]
+[gd_resource type="ShaderMaterial" load_steps=21 format=2]
 
 [sub_resource type="VisualShaderNodeColorConstant" id=1]
 constant = Color( 1, 0, 0, 1 )
@@ -56,6 +56,27 @@ constant = 10.0
 [sub_resource type="VisualShaderNodeColorConstant" id=11]
 constant = Color( 0, 1, 0.360784, 1 )
 
+[sub_resource type="VisualShaderNodeInput" id=14]
+input_name = "inv_camera"
+
+[sub_resource type="VisualShaderNodeInput" id=15]
+input_name = "camera"
+
+[sub_resource type="VisualShaderNodeInput" id=16]
+input_name = "world"
+
+[sub_resource type="VisualShaderNodeTransformMult" id=19]
+
+[sub_resource type="VisualShaderNodeTransformDecompose" id=20]
+
+[sub_resource type="VisualShaderNodeTransformDecompose" id=21]
+
+[sub_resource type="VisualShaderNodeTransformCompose" id=22]
+
+[sub_resource type="VisualShaderNodeExpression" id=13]
+size = Vector2( 167, 155 )
+expression = "MODELVIEW_MATRIX = (input)"
+
 [sub_resource type="VisualShader" id=12]
 code = "shader_type spatial;
 render_mode specular_schlick_ggx;
@@ -66,7 +87,42 @@ uniform float total_time;
 
 
 void vertex() {
+// Input:10
+	mat4 n_out10p0 = INV_CAMERA_MATRIX;
+
+// Input:11
+	mat4 n_out11p0 = CAMERA_MATRIX;
+
+// TransformDecompose:16
+	vec3 n_out16p0 = n_out11p0[0].xyz;
+	vec3 n_out16p1 = n_out11p0[1].xyz;
+	vec3 n_out16p2 = n_out11p0[2].xyz;
+	vec3 n_out16p3 = n_out11p0[3].xyz;
+
+// Input:12
+	mat4 n_out12p0 = WORLD_MATRIX;
+
+// TransformDecompose:17
+	vec3 n_out17p0 = n_out12p0[0].xyz;
+	vec3 n_out17p1 = n_out12p0[1].xyz;
+	vec3 n_out17p2 = n_out12p0[2].xyz;
+	vec3 n_out17p3 = n_out12p0[3].xyz;
+
+// TransformCompose:18
+	mat4 n_out18p0 = mat4(vec4(n_out16p0, 0.0), vec4(n_out16p1, 0.0), vec4(n_out16p2, 0.0), vec4(n_out17p3, 1.0));
+
+// TransformMult:15
+	mat4 n_out15p0 = n_out10p0 * n_out18p0;
+
+// Expression:8
+	float n_out8p0;
+	n_out8p0 = 0.0;
+	{
+		MODELVIEW_MATRIX = (n_out15p0)
+	}
+
 // Output:0
+	ROUGHNESS = n_out8p0;
 
 }
 
@@ -145,7 +201,29 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -907.142, 366 )
+graph_offset = Vector2( -105.773, 23.5 )
+nodes/vertex/0/position = Vector2( 740, 120 )
+nodes/vertex/8/node = SubResource( 13 )
+nodes/vertex/8/position = Vector2( 340, 400 )
+nodes/vertex/8/size = Vector2( 167, 155 )
+nodes/vertex/8/input_ports = "0,3,input;"
+nodes/vertex/8/output_ports = "0,0,output0;"
+nodes/vertex/8/expression = "MODELVIEW_MATRIX = (input)"
+nodes/vertex/10/node = SubResource( 14 )
+nodes/vertex/10/position = Vector2( 240, 80 )
+nodes/vertex/11/node = SubResource( 15 )
+nodes/vertex/11/position = Vector2( -220, 120 )
+nodes/vertex/12/node = SubResource( 16 )
+nodes/vertex/12/position = Vector2( -220, 220 )
+nodes/vertex/15/node = SubResource( 19 )
+nodes/vertex/15/position = Vector2( 460, 140 )
+nodes/vertex/16/node = SubResource( 20 )
+nodes/vertex/16/position = Vector2( -40, 80 )
+nodes/vertex/17/node = SubResource( 21 )
+nodes/vertex/17/position = Vector2( -40, 200 )
+nodes/vertex/18/node = SubResource( 22 )
+nodes/vertex/18/position = Vector2( 220, 160 )
+nodes/vertex/connections = PoolIntArray( 8, 0, 0, 8, 11, 0, 16, 0, 12, 0, 17, 0, 10, 0, 15, 0, 17, 3, 18, 3, 16, 0, 18, 0, 16, 1, 18, 1, 16, 2, 18, 2, 18, 0, 15, 1, 15, 0, 8, 0 )
 nodes/fragment/0/position = Vector2( 140, 440 )
 nodes/fragment/4/node = SubResource( 7 )
 nodes/fragment/4/position = Vector2( -440, 400 )

@@ -33,23 +33,30 @@ var current_velocity: Vector3
 
 var nearest_interactable: Interactable
 
+var game_finished: bool
 
 func _ready() -> void:
     tray = tray_scene.instance()
     tray_anchor.add_child(tray)
     
+    game_finished = false
+    
     hud = hud_scene.instance() as PlayerHUD
     add_child(hud)
 
 
-func _physics_process(delta: float) -> void:    
+func _physics_process(delta: float) -> void:  
+    if game_finished:
+        return
+         
     process_input(delta)
     process_movement(delta)
     process_raycasts(delta)
     update_hud(delta)
     
 
-func process_input(_delta: float) -> void:
+func process_input(_delta: float) -> void: 
+        
     # Reset direction
     desired_direction = Vector3()
     
@@ -107,3 +114,7 @@ func update_hud(_delta: float) -> void:
 func UpdateMoney(amount: int):
     money += amount
     hud.set_label_money_value(String(money))
+
+func game_finished():
+    game_finished = true
+    hud.show_game_finished()

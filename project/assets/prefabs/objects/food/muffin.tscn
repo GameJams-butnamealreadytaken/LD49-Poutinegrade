@@ -44,6 +44,7 @@ food_name = "Muffin"
 food_reward = 14.0
 
 [node name="RigidBody" type="RigidBody" parent="."]
+collision_layer = 5
 linear_damp = 1.0
 angular_damp = 1.0
 

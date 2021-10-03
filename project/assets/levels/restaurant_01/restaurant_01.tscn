@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
@@ -46,6 +46,9 @@
 [ext_resource path="res://assets/prefabs/objects/cardboard_closed.tscn" type="PackedScene" id=44]
 [ext_resource path="res://assets/prefabs/objects/decorative_food/frikandel.tscn" type="PackedScene" id=45]
 [ext_resource path="res://assets/prefabs/objects/glass_wine.tscn" type="PackedScene" id=46]
+[ext_resource path="res://assets/prefabs/objects/stage_floor.tscn" type="PackedScene" id=47]
+[ext_resource path="res://assets/prefabs/objects/stage_floor_corner.tscn" type="PackedScene" id=48]
+[ext_resource path="res://assets/prefabs/objects/stairs_corner.tscn" type="PackedScene" id=49]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -29.8679, -23.267, -30.679, 59.7358, 46.534, 61.358 )
@@ -448,7 +451,7 @@ transform = Transform( 0.391406, 0, 0.920218, 0, 1, 0, -0.920218, 0, 0.391406, 1
 transform = Transform( -0.0590973, 0, 0.998252, 0, 1, 0, -0.998252, 0, -0.0590973, 1.59807, 0, -1.1363 )
 
 [node name="sceneTable4" parent="restaurant/tables" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98613, 0, -13 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.34907, 0, -6.44921 )
 
 [node name="Chair11" parent="restaurant/tables/sceneTable4" instance=ExtResource( 22 )]
 transform = Transform( 0.98525, 0, -0.171121, 0, 1, 0, 0.171121, 0, 0.98525, 0.377495, 0, 1.9713 )
@@ -502,7 +505,7 @@ transform = Transform( -0.915431, 0, -0.402475, 0, 1, 0, 0.402475, 0, -0.915431,
 transform = Transform( -0.393958, 0, -0.919129, 0, 1, 0, 0.919129, 0, -0.393958, -2.26569, 9.53674e-07, -0.011447 )
 
 [node name="sceneTable9" parent="restaurant/tables" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01387, 0, -20 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0663, 0, -6.96234 )
 
 [node name="Chair10" parent="restaurant/tables/sceneTable9" instance=ExtResource( 22 )]
 transform = Transform( 0.999924, 0, -0.0123041, 0, 1, 0, 0.0123041, 0, 0.999924, 0.511902, 9.53674e-07, 1.79699 )
@@ -514,7 +517,7 @@ transform = Transform( -0.0485186, 0, 0.998822, 0, 1, 0, -0.998822, 0, -0.048518
 transform = Transform( -0.995715, 0, -0.0924749, 0, 1, 0, 0.0924749, 0, -0.995715, -0.444781, 9.53674e-07, -1.73647 )
 
 [node name="sceneTable10" parent="restaurant/tables" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0139, 0, -19 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3815, 0, -10.0475 )
 
 [node name="Chair13" parent="restaurant/tables/sceneTable10" instance=ExtResource( 22 )]
 transform = Transform( 0.0116585, 0, -0.999932, 0, 1, 0, 0.999932, 0, 0.0116585, -1.56002, 9.53674e-07, 0.538088 )
@@ -568,11 +571,11 @@ CharacterType = "Orc"
 
 [node name="sceneCustomer7" parent="restaurant/customerManager" instance=ExtResource( 2 )]
 pause_mode = 1
-transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, -11.1135, 0, -12.7709 )
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, -12.4764, 0, -6.22011 )
 
 [node name="sceneCustomer8" parent="restaurant/customerManager" instance=ExtResource( 2 )]
 pause_mode = 1
-transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, 1.12365, 0, -20.4983 )
+transform = Transform( 0.0913278, 0, 0.995821, 0, 1, 0, -0.995821, 0, 0.0913278, 2.17608, 0, -7.46064 )
 CharacterType = "Woman"
 
 [node name="sceneCustomer9" parent="restaurant/customerManager" instance=ExtResource( 2 )]
@@ -596,12 +599,12 @@ CharacterType = "Woman"
 
 [node name="sceneCustomer13" parent="restaurant/customerManager" instance=ExtResource( 2 )]
 pause_mode = 1
-transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 20.5812, 1.43051e-06, -21.7242 )
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 22.9488, 1.43051e-06, -12.7717 )
 CharacterType = "Orc"
 
 [node name="sceneCustomer14" parent="restaurant/customerManager" instance=ExtResource( 2 )]
 pause_mode = 1
-transform = Transform( -0.903619, 0, 0.428336, 0, 1, 0, -0.428336, 0, -0.903619, 16.3937, 1.43051e-06, -16.6232 )
+transform = Transform( -0.903619, 0, 0.428336, 0, 1, 0, -0.428336, 0, -0.903619, 18.7613, 1.43051e-06, -7.6707 )
 CharacterType = "ManAlternative"
 
 [node name="sceneCustomer15" parent="restaurant/customerManager" instance=ExtResource( 2 )]
@@ -869,6 +872,24 @@ extents = Vector3( 29.8679, 23.267, 30.679 )
 propagation = 0.73
 interior = true
 data = SubResource( 1 )
+
+[node name="Stage" type="Spatial" parent="restaurant"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.3936 )
+
+[node name="StageFloor" parent="restaurant/Stage" instance=ExtResource( 47 )]
+transform = Transform( 1.5, 0, 0, 0, 9, 0, 0, 0, 1.5, 3.74627, -0.285737, -9.63531 )
+
+[node name="StageFloorCorner" parent="restaurant/Stage" instance=ExtResource( 48 )]
+transform = Transform( -1.5, 0, 4.27771e-07, 0, 9, 0, -2.26494e-07, 0, -2.833, 2.633, -0.286, -2.135 )
+
+[node name="StageFloorCorner2" parent="restaurant/Stage" instance=ExtResource( 48 )]
+transform = Transform( 1.5, -1.35896e-06, -4.27771e-07, -2.26494e-07, -9, -1.69407e-21, -2.26494e-07, 2.05198e-13, -2.833, -3.174, 1.965, -2.135 )
+
+[node name="StairsCorner" parent="restaurant/Stage" instance=ExtResource( 49 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.587, -0.739, -4.67551 )
+
+[node name="StairsCorner2" parent="restaurant/Stage" instance=ExtResource( 49 )]
+transform = Transform( -4.37114e-08, -3.82137e-15, 1, -8.74228e-08, 1, 0, 1, 8.74228e-08, 4.37114e-08, -10.166, -0.739, -4.676 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )

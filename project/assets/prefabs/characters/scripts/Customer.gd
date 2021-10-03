@@ -51,6 +51,9 @@ func _ready():
     
     # Register customer
     customerManager.RegisterCustomer(self)
+    var mat = $spriteTimer.get_material_override().duplicate(true)
+    $spriteTimer.set_material_override(mat)
+    $spriteTimer.set_visible(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -70,7 +73,7 @@ func _process(delta):
             ElapsedTime = 0
             ServeRequestedFood(null)
         else:
-            var mat = $Billboard/spriteTimer.get_material_override()
+            var mat = $spriteTimer.get_material_override()
             mat.set_shader_param("elapsed_time", ElapsedTime)
 
 func IsIdle():
@@ -132,11 +135,11 @@ func SwitchState():
     # Update idle threshold
     if Idle:
         IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
-        $Billboard/spriteTimer.set_visible(true)
+        $spriteTimer.set_visible(false)
     else:
         RequestingThreshold = Rnd.randi_range(RequestingThresholdMin, RequestingThresholdMax)        
-        $Billboard/spriteTimer.set_visible(true)
-        var mat = $Billboard/spriteTimer.get_material_override()
+        $spriteTimer.set_visible(true)
+        var mat = $spriteTimer.get_material_override()
         mat.set_shader_param("elapsed_time", 0)
         mat.set_shader_param("total_time", RequestingThreshold)
         

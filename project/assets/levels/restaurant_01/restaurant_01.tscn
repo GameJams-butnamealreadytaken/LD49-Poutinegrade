@@ -621,7 +621,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9709, 2.16534, 5.62414 )
 food_to_spawn = ExtResource( 14 )
 
 [node name="FoodSpawnerRedWine" parent="restaurant/Spawners" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1442, 2.16534, 5.62414 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1442, 2.31158, 5.62414 )
 food_to_spawn = ExtResource( 15 )
 
 [node name="FoodSpawnerSushi" parent="restaurant/Spawners" instance=ExtResource( 7 )]
@@ -645,7 +645,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.25437, 11.6492 )
 food_to_spawn = ExtResource( 12 )
 
 [node name="FoodSpawnerFries" parent="restaurant/Spawners" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.31052, 10.2954 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.26036, 10.2954 )
 food_to_spawn = ExtResource( 11 )
 
 [node name="Walls" type="Spatial" parent="restaurant"]

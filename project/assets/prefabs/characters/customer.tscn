@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/prefabs/characters/scripts/Customer.gd" type="Script" id=1]
 [ext_resource path="res://assets/prefabs/characters/character.tscn" type="PackedScene" id=2]
@@ -11,6 +11,10 @@ height = 2.25239
 [sub_resource type="CapsuleShape" id=2]
 radius = 1.48974
 height = 2.25239
+
+[sub_resource type="StreamTexture" id=3]
+flags = 7
+load_path = "res://.import/white.png-5a24addff47c5cf030d8933848d133b0.s3tc.stex"
 
 [node name="sceneCustomer" type="Area"]
 collision_layer = 2
@@ -31,5 +35,6 @@ shape = SubResource( 2 )
 [node name="spriteTimer" parent="." groups=[
 "billboard",
 ] instance=ExtResource( 4 )]
-transform = Transform( 0.12914, 0, 0, 0, 0.12914, 0, 0, 0, 0.999999, 1.00096, 4.96732, 0 )
+transform = Transform( 1.53, 0, 0, 0, 0.059, 0, 0, 0, 0.889, 0, 7.04046, 0 )
+texture = SubResource( 3 )
 script = ExtResource( 3 )

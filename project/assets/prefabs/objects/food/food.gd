@@ -8,8 +8,7 @@ onready var rigid_body := get_node(rigid_body_path) as RigidBody
 
 export(String) var food_name := "No Name"
 export(float) var food_reward := 0.0
-
-
+    
 func make_food_static() -> void:
     rigid_body.set_mode(RigidBody.MODE_STATIC)
 
@@ -34,7 +33,5 @@ func apply_player_rotation(rotation: float, player_location: Vector3) -> void:
 
     food_location.x = x
     food_location.z = z
-    
-    #print(String(food_location) + "\n")
     
     rigid_body.global_transform.origin = food_location

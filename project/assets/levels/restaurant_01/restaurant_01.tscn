@@ -361,7 +361,7 @@ transform = Transform( 0.781292, 0, -0.624166, 0, 1, 0, 0.624166, 0, 0.781292, -
 CharacterType = "Woman"
 
 [node name="Player" parent="restaurant" instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.67338, 2.03495, 6.78699 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.04982, 2.03495, 6.78699 )
 
 [node name="Spawners" type="Spatial" parent="restaurant"]
 
@@ -473,7 +473,7 @@ transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0
 transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6721, 6.50054, 4.87041 )
 
 [node name="Roof41" parent="restaurant/Roof" instance=ExtResource( 19 )]
-transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6556, 6.50054, -4.91089 )
+transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6279, 6.50054, -4.87638 )
 
 [node name="Roof42" parent="restaurant/Roof" instance=ExtResource( 19 )]
 transform = Transform( 0.00169297, 0.811593, 0.58422, 0, 0.584221, -0.811594, -0.999999, 0.001374, 0.000989067, -25.6389, 6.50054, -14.79 )

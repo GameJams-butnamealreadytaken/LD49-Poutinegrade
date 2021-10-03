@@ -12,6 +12,8 @@ food_name = "Burger"
 food_reward = 6.0
 
 [node name="RigidBody" type="RigidBody" parent="."]
+linear_damp = 1.0
+angular_damp = 1.0
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
 transform = Transform( 0.185, 0, 0, 0, 0.146, 0, 0, 0, 0.183, 0, 0, 0 )

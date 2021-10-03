@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ambient_restaurant.ogg-bb7b445c4a5f0e2835893db09b6addc0.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/ambient_restaurant.ogg"
+dest_files=[ "res://.import/ambient_restaurant.ogg-bb7b445c4a5f0e2835893db09b6addc0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

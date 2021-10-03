@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ambient_kitchen.ogg-9c773161af31be02edb35a3b6f8cf53a.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/ambient_kitchen.ogg"
+dest_files=[ "res://.import/ambient_kitchen.ogg-9c773161af31be02edb35a3b6f8cf53a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

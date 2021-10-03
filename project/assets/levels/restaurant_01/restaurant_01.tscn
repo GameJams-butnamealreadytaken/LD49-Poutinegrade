@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://assets/prefabs/objects/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/prefabs/characters/customer.tscn" type="PackedScene" id=2]
@@ -53,6 +53,10 @@
 [ext_resource path="res://assets/prefabs/objects/hell.tscn" type="PackedScene" id=51]
 [ext_resource path="res://assets/prefabs/objects/speaker.tscn" type="PackedScene" id=52]
 [ext_resource path="res://assets/prefabs/objects/speaker_small.tscn" type="PackedScene" id=53]
+[ext_resource path="res://assets/sounds/ambient_restaurant.ogg" type="AudioStream" id=54]
+[ext_resource path="res://assets/sounds/ambient_kitchen.ogg" type="AudioStream" id=55]
+[ext_resource path="res://assets/sounds/ambient_music.ogg" type="AudioStream" id=56]
+[ext_resource path="res://assets/prefabs/characters/character.tscn" type="PackedScene" id=57]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -29.8679, -23.267, -30.679, 59.7358, 46.534, 61.358 )
@@ -413,6 +417,14 @@ transform = Transform( -0.131147, -0.0211075, 0.991138, 0.00748845, -0.999766, -
 [node name="Bread2" parent="restaurant/kitchen/CuttingBoard" instance=ExtResource( 42 )]
 transform = Transform( 0.0211169, 2.38419e-06, 0.999777, 0.999777, -4.37016e-07, -0.0211169, 4.00469e-08, 10, -1.78814e-07, 7.43866e-05, 0.1201, -0.365826 )
 
+[node name="sceneCharacter" parent="restaurant/kitchen" instance=ExtResource( 57 )]
+transform = Transform( 0.780921, 0, -0.62463, 0, 1, 0, 0.62463, 0, 0.780921, 19.2972, 0, 11.2299 )
+CharacterType = "Man"
+
+[node name="sceneCharacter2" parent="restaurant/kitchen" instance=ExtResource( 57 )]
+transform = Transform( -0.132914, 0, -0.991128, 0, 1, 0, 0.991128, 0, -0.132914, 13.2246, 0, 19.9015 )
+CharacterType = "ManAlternative"
+
 [node name="tables" type="Spatial" parent="restaurant"]
 
 [node name="sceneTable" parent="restaurant/tables" instance=ExtResource( 1 )]
@@ -618,7 +630,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9709, 2.16534, 5.62414 )
 food_to_spawn = ExtResource( 14 )
 
 [node name="FoodSpawnerRedWine" parent="restaurant/Spawners" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1442, 2.16534, 5.62414 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1442, 2.31158, 5.62414 )
 food_to_spawn = ExtResource( 15 )
 
 [node name="FoodSpawnerSushi" parent="restaurant/Spawners" instance=ExtResource( 7 )]
@@ -642,7 +654,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.25437, 11.6492 )
 food_to_spawn = ExtResource( 12 )
 
 [node name="FoodSpawnerFries" parent="restaurant/Spawners" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.31052, 10.2954 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7835, 2.26036, 10.2954 )
 food_to_spawn = ExtResource( 11 )
 
 [node name="Walls" type="Spatial" parent="restaurant"]
@@ -900,6 +912,27 @@ transform = Transform( -0.94313, 0, -0.332425, 0, 1, 0, 0.332425, 0, -0.94313, -
 
 [node name="SpeakerSmall2" parent="restaurant/Stage" instance=ExtResource( 53 )]
 transform = Transform( -0.824966, 0, 0.565183, 0, 1, 0, -0.565183, 0, -0.824966, 3.91424, 1.95099, -4.17403 )
+
+[node name="Sounds" type="Spatial" parent="restaurant"]
+
+[node name="AmbientKitchen" type="AudioStreamPlayer3D" parent="restaurant/Sounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1784, 2.18038, 14.3049 )
+stream = ExtResource( 55 )
+unit_db = 3.0
+unit_size = 2.0
+autoplay = true
+
+[node name="AmbientRestaurant" type="AudioStreamPlayer3D" parent="restaurant/Sounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9122, 2.77181, 6.66403 )
+stream = ExtResource( 54 )
+unit_db = 2.0
+unit_size = 7.0
+autoplay = true
+
+[node name="AmbientMusic" type="AudioStreamPlayer3D" parent="restaurant/Sounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.79325, -19.7931 )
+stream = ExtResource( 56 )
+autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )

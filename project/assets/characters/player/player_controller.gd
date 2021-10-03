@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
     update_hud(delta)
     
 
-func process_input(_delta: float) -> void: 
+func process_input(delta: float) -> void: 
         
     # Reset direction
     desired_direction = Vector3()
@@ -64,17 +64,22 @@ func process_input(_delta: float) -> void:
     desired_rotation_direction = 0
     
     var camera_transform := camera.get_global_transform()
+    var direction = 0 as int
     
     # Movement inputs
     if Input.is_action_pressed("move_forward"):
-        desired_direction -= camera_transform.basis.z
+        direction = -1
     if Input.is_action_pressed("move_backward"):
-        desired_direction += camera_transform.basis.z
+        direction = 1
     if Input.is_action_pressed("rotate_left"):
         desired_rotation_direction = -1
     if Input.is_action_pressed("rotate_right"):
         desired_rotation_direction = 1
-        
+    
+    desired_direction += direction * camera_transform.basis.z
+    
+    tray.on_player_moved(direction, desired_rotation_direction, delta)
+    
     # Interaction input
     if Input.is_action_just_pressed("interact") and nearest_interactable != null:
         nearest_interactable.interact(self)
@@ -95,7 +100,6 @@ func process_movement(delta: float) -> void:
         
     last_velocity = current_velocity
     current_velocity = move_and_slide(new_velocity, Vector3.UP)
-
 
 func process_raycasts(_delta: float) -> void:
     if tray and !tray.is_in_kinematic_state():

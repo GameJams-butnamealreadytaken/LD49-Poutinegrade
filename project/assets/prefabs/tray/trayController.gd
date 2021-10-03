@@ -6,6 +6,7 @@ signal onTrayBail
 
 export(float) var rotation_speed = 1.0
 export(float) var rotation_max = 30.0
+export(float) var move_offset_speed = 0.1
 
 var rot_angle_x = 0.0
 var rot_angle_z = 0.0
@@ -75,6 +76,22 @@ func _physics_process(_delta):
         rotate_x(rot_angle_x)
     if rot_angle_z != 0.0:
         rotate_z(rot_angle_z)
+
+func on_player_moved(direction: int, rotation: int, delta: float) -> void:
+    var rotation_x = abs(rad2deg(get_transform().basis.get_euler().x))
+    var rotation_z = abs(rad2deg(get_transform().basis.get_euler().z))
+    
+    if abs(rotation_x) < rotation_max:
+        if direction == 1:
+            rot_angle_x -= move_offset_speed * delta
+        elif direction == -1:
+            rot_angle_x += move_offset_speed * delta
+    
+    if abs(rotation_z) < rotation_max:
+        if rotation == 1:
+            rot_angle_z += move_offset_speed * delta
+        elif rotation == -1:
+            rot_angle_z -= move_offset_speed * delta
 
 func is_in_kinematic_state() -> bool:
     return mode == MODE_KINEMATIC

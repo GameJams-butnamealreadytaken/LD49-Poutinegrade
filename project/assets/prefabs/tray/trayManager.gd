@@ -71,12 +71,15 @@ func add_food(food_object: PackedScene) -> void:
 
 func apply_player_velocity(velocity: Vector3) -> void:
     for item in food_list:
-        item.apply_player_velocity(velocity);
+       item.apply_player_velocity(velocity);
         
 func apply_player_rotation(rotation: float, player_location: Vector3) -> void:
     for item in food_list:
         item.apply_player_rotation(rotation, player_location);
 
+func on_player_moved(direction: int, rotation: int, delta: float) -> void:
+    tray_controller.on_player_moved(direction, rotation, delta)
+    
 func get_food_object(food_name: String) -> Food:
     for i in range(0, food_list.size()):
         var food = food_list[i]

@@ -24,6 +24,7 @@ var FoodAnimationInitialPos : Vector3
 
 var customerManager = null
 var player = null
+onready var material = $spriteTimer.get_material_override().duplicate(true)
 
 func IsCustomerManagerObjectValid(_customerManager):
     return _customerManager != null and _customerManager.get_script() != null and customerManager.get_script().get_path() == "res://assets/prefabs/managers/CustomerManager.gd"
@@ -51,8 +52,7 @@ func _ready():
     
     # Register customer
     customerManager.RegisterCustomer(self)
-    var mat = $spriteTimer.get_material_override().duplicate(true)
-    $spriteTimer.set_material_override(mat)
+    $spriteTimer.set_material_override(material)
     $spriteTimer.set_visible(false)
 
 func reset():

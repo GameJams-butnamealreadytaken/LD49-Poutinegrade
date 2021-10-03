@@ -1,5 +1,9 @@
 extends Spatial
 
+export(int) var game_duration_seconds = 300
+var remaining_time = 0
+var player = null
+
 func _ready():
     var foodSpawners = get_tree().get_nodes_in_group("food_spawner")
     var customerManagers = get_tree().get_nodes_in_group("customer_manager")
@@ -16,14 +20,21 @@ func _ready():
         return
     
     # Setup links between managers and classes
-    customerManagers[0].player = players[0]
+    player = players[0]
+    customerManagers[0].player = player
     customerManagers[0].SetAvailableFoodSpawners(foodSpawners)
     
     var billboardSize = billboards.size()
     for billboardIndex in range(0, billboardSize-1):
-        billboards[billboardIndex].CameraToLookAt = players[0]
+        billboards[billboardIndex].CameraToLookAt = player
 
+    remaining_time = game_duration_seconds
     
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#    pass
+func _process(delta):
+    if remaining_time > 0:
+        remaining_time = max(remaining_time - delta, 0)
+        if remaining_time <= 0:
+            player.game_finished()
+        player.hud.set_label_time_value(String(remaining_time))
+    

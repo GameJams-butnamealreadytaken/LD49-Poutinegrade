@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/characters/player/player_hud.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/material_sprite_transparent.tres" type="Material" id=2]
 
 [node name="PlayerHUD" type="Control"]
 anchor_right = 1.0
@@ -9,65 +10,130 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-interaction_text_path = NodePath("InteractionText")
-label_clients_requesting_value_path = NodePath("ContainerClients/LabelClientsRequestingValue")
-label_money_value_path = NodePath("ContainerMoney/LabelMoneyValue")
+interaction_text_path = NodePath("TabContainer/game/InteractionText")
+label_clients_requesting_value_path = NodePath("TabContainer/game/Container1/HBoxContainer2/LabelClientsRequestingValue")
+label_money_value_path = NodePath("TabContainer/game/Container2/LabelMoneyValue")
+label_time_value_path = NodePath("TabContainer/game/Container1/HBoxContainer/LabelTimeValue")
 
-[node name="InteractionText" type="RichTextLabel" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="TabContainer" type="TabContainer" parent="."]
+material = ExtResource( 2 )
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -175.0
-margin_top = -50.0
-margin_right = 175.0
-margin_bottom = -20.0
+tabs_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="game" type="VBoxContainer" parent="TabContainer"]
+material = ExtResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="InteractionText" type="RichTextLabel" parent="TabContainer/game"]
+margin_right = 1016.0
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ContainerClients" type="HBoxContainer" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -200.0
-margin_bottom = 50.0
+[node name="Container1" type="HBoxContainer" parent="TabContainer/game"]
+margin_top = 4.0
+margin_right = 1016.0
+margin_bottom = 18.0
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelClientsRequesting" type="Label" parent="ContainerClients"]
-margin_top = 18.0
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/game/Container1"]
+margin_right = 120.0
+margin_bottom = 14.0
+size_flags_horizontal = 2
+
+[node name="LabelTime" type="Label" parent="TabContainer/game/Container1/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 14.0
+text = "Time remaining :"
+
+[node name="LabelTimeValue" type="Label" parent="TabContainer/game/Container1/HBoxContainer"]
+margin_left = 112.0
+margin_right = 120.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/game/Container1"]
+margin_left = 880.0
+margin_right = 1016.0
+margin_bottom = 14.0
+alignment = 2
+
+[node name="LabelClientsRequesting" type="Label" parent="TabContainer/game/Container1/HBoxContainer2"]
 margin_right = 124.0
-margin_bottom = 32.0
+margin_bottom = 14.0
 text = "Clients requesting :"
 
-[node name="LabelClientsRequestingValue" type="Label" parent="ContainerClients"]
+[node name="LabelClientsRequestingValue" type="Label" parent="TabContainer/game/Container1/HBoxContainer2"]
 margin_left = 128.0
-margin_top = 18.0
 margin_right = 136.0
-margin_bottom = 32.0
+margin_bottom = 14.0
 text = "0"
 
-[node name="ContainerMoney" type="HBoxContainer" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -200.0
-margin_top = 50.0
-margin_bottom = 100.0
+[node name="Container2" type="HBoxContainer" parent="TabContainer/game"]
+margin_top = 22.0
+margin_right = 1016.0
+margin_bottom = 36.0
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelMoney" type="Label" parent="ContainerMoney"]
-margin_top = 18.0
-margin_right = 51.0
-margin_bottom = 32.0
+[node name="LabelMoney" type="Label" parent="TabContainer/game/Container2"]
+margin_left = 953.0
+margin_right = 1004.0
+margin_bottom = 14.0
 text = "Money :"
 
-[node name="LabelMoneyValue" type="Label" parent="ContainerMoney"]
-margin_left = 55.0
-margin_top = 18.0
-margin_right = 63.0
-margin_bottom = 32.0
+[node name="LabelMoneyValue" type="Label" parent="TabContainer/game/Container2"]
+margin_left = 1008.0
+margin_right = 1016.0
+margin_bottom = 14.0
 text = "0"
+
+[node name="ContainerTime" type="HBoxContainer" parent="TabContainer/game"]
+margin_top = 40.0
+margin_right = 1016.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="game_finished" type="VBoxContainer" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTitleGameFinished" type="Label" parent="TabContainer/game_finished"]
+margin_right = 1016.0
+margin_bottom = 14.0
+text = "Game finished !"
+align = 1
+
+[node name="ButtonReturnMainMenu" type="Button" parent="TabContainer/game_finished"]
+margin_left = 435.0
+margin_top = 18.0
+margin_right = 581.0
+margin_bottom = 38.0
+size_flags_horizontal = 4
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="TabContainer/game_finished/ButtonReturnMainMenu" to="." method="_on_ButtonReturnMainMenu_pressed"]

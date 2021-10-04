@@ -140,9 +140,11 @@ func SwitchState():
     
     # Update idle threshold
     if Idle:
+        Rnd.randomize()
         IdleThreshold = Rnd.randi_range(IdleThresholdMin, IdleThresholdMax)
         $spriteTimer.set_visible(false)
     else:
+        Rnd.randomize()
         RequestingThreshold = Rnd.randi_range(RequestingThresholdMin, RequestingThresholdMax)        
         $spriteTimer.set_visible(true)
         var mat = $spriteTimer.get_material_override()

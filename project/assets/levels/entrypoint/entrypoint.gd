@@ -26,9 +26,10 @@ func _ready():
             get_tree().root.find_node("CameraMainMenu", true, false).make_current()
             initialPlayerTransform = restaurant.player.global_transform
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#    pass
+
+func _process(_delta):
+    if Game.started == false and Input.is_action_just_pressed("interact"):
+        start_game()
 
 func start_game():
     Game.started = true

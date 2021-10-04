@@ -19,6 +19,10 @@ func _ready():
     $TabContainer.set_tab_disabled(1, true)
     $TabContainer.set_tab_title(0, "")
     $TabContainer.set_tab_title(1, "")
+    
+func _process(_delta):
+    if $TabContainer.current_tab == 1 and Input.is_action_just_pressed("interact"):
+        _on_ButtonReturnMainMenu_pressed()
 
 func set_interaction_text(new_text: String) -> void:        
     interaction_text.bbcode_text = "[center]" + new_text + "[/center]"
